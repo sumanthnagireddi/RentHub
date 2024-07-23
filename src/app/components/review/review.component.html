@@ -1,0 +1,16 @@
+<article>
+    <div class="flex items-center mb-4">
+        <p
+            class="w-10 h-10 bg-gray-300/50  text-sm font-medium text-gray-700 me-4   flex items-center justify-center rounded-full ">
+            {{data?.userName?.slice(0,2) | uppercase}} </p>
+        <div class="font-medium text-sm">
+            <p>{{data?.userName}}
+            <p class="text-gray-600 text-sm font-normal">Reviewed on <time datetime="2017-03-03 19:00">{{data?.reviewedOn | date:'mediumDate'}}</time></p>
+        </div>
+    </div>
+    <footer class="mb-2 text-sm text-gray-500 dasrk:text-gray-400">
+
+    </footer>
+    <p class="mb-2 text-gray-500 dasrk:text-gray-400">{{data?.review}} </p>
+
+</article>

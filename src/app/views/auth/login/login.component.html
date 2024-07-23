@@ -1,0 +1,54 @@
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <div class="mx-auto h-10 w-auto flex justify-center items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#4f46e5"
+                class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+
+            <p class="text-2xl font-bold text-primary">RentHub</p>
+        </div>
+        <h2 class="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-gray-700">Sign in to your account
+        </h2>
+    </div>
+
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div [formGroup]="loginForm" class="space-y-6">
+            <div>
+                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+                <div class="mt-2">
+                    <input
+                        [ngClass]="{'outline-red-600 ring-red-600':((isSubmitted && !loginForm.value.userName) || loginForm.get('userName')?.hasError('pattern') )}"
+                        formControlName="userName" id="email" name="email" type="email" autocomplete="email" required
+                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                <small class="text-red-600" *ngIf="(isSubmitted &&!loginForm.value.userName)">Please enter your
+                    email
+                    address</small>
+            </div>
+
+            <div>
+                <div class="flex items-center justify-between">
+                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+
+                </div>
+                <div class="mt-2">
+                    <input id="password" formControlName="password" name="password" type="password" 
+                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" (click)="submit()"
+                    class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign
+                    in</button>
+            </div>
+        </div>
+
+        <p class="mt-10 text-center text-sm text-gray-500">
+            Not a member?
+            <a routerLink="/register" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Register Now</a>
+        </p>
+    </div>
+</div>

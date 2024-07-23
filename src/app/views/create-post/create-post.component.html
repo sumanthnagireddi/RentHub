@@ -1,0 +1,232 @@
+<div class="p-4" [formGroup]="rent_form">
+    <mat-stepper>
+        <mat-step label="Basic Information">
+            <div [formGroupName]="'unitInformation'"
+                class="mx-12 my-6 bg-white shadow-md rounded-xl border-gray-200 border py-4 px-4 space-y-4">
+                <div class="space-y-2">
+                    <p class="text-gray-900 text-xs font-medium pb-1">Unit Information:</p>
+                    <div class="grid grid-cols-2 pb-2 gap-6">
+                        <div>
+                            <label for="unitName" class="block text-xs text-gray-700">Ad Title<span
+                                    class="text-red-600">*</span></label>
+                            <input type="text" id="unitName" formControlName="title"
+                                class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                        </div>
+                        <div>
+                            <label for="unitName" class="block text-xs text-gray-700">Ad Description<span
+                                    class="text-red-600">*</span></label>
+                            <input type="text" id="unitName" formControlName="description"
+                                class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-6 justify-between">
+                        <div class="flex-1">
+                            <label for="unitName" class="block text-xs text-gray-700">Unit Type
+                                (Apartment/Building)<span class="text-red-600">*</span></label>
+
+                            <select name="unit_type" id="unit_type" formControlName="unit_type"
+                                class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm">
+                                <option value="">Please select</option>
+                                <option value="1 BHK">1 BHK</option>
+                                <option value="2 BHK">2 BHK</option>
+                                <option value="3 BHK">3 BHK</option>
+                                <option value="4 BHK">Individual Building</option>
+                            </select>
+                        </div>
+                        <div class="flex-1">
+                            <label for="unitName" class="block text-xs text-gray-700">Unit Name <span
+                                    class="text-red-600">*</span></label>
+                            <input type="text" formControlName="unit_name" id="unitName"
+                                class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                        </div>
+                        <div class="mt-1">
+                            <label for="unitName" class="block text-xs text-gray-700">Is this a shared Property or Individual Property
+                                ?</label>
+                            <div class="flex gap-6 py-2">
+                                <div class="flex items-center ">
+                                    <input formControlName="shared_property" id="shared_property" type="radio" value="Shared Property"
+                                        name="shared_property"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                    <label for="Shared Property" class="ms-2 text-sm  text-gray-900 ">Shared</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input formControlName="shared_property" id="shared_property" type="radio" value="Individual Property"
+                                        name="shared_property"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                    <label for="Individual Property" class="ms-2 text-sm  text-gray-900 ">Individual</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="unitName" class="block text-xs text-gray-700">Unit Area(In sq.ft)</label>
+                            <input type="text" id="unitName" formControlName="unit_area"
+                                class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-900 text-xs font-medium">Unit Location:</p>
+                   
+                <div>
+                    <div class="grid grid-cols-3 gap-6">
+                        <div>
+                            <label for="unit_availability" class="block text-xs text-gray-700">Unit Available From</label>
+                            <input type="date" id="unit_availability" formControlName="unit_availability"
+                                class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                            
+                        </div>
+                        <div class="col-span-2">
+                            <label for="streetAddress" class="block text-xs text-gray-700">Street Address</label>
+                            <input type="text" id="streetAddress" formControlName="unit_address"
+                                class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <label for="unitName" class="block text-xs text-gray-700">Unit Images <span
+                            class="text-red-600">*</span></label>
+                    <div class="flex items-center gap-2 py-2 w-full">
+                        <div *ngFor="let img of rent_form?.value.unitInformation?.unit_images;let i=index"
+                            class="relative">
+                            <img class="w-28 h-28 object-cover border border-gray-300 rounded-lg" [src]="img" />
+                            <span (click)="removePicture(i)"> <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                    class="size-5 cursor-pointer absolute top-1 right-1 fill-white border-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg></span>
+                        </div>
+                        <label for="dropzone-file"
+                            class="w-28 h-28 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50">
+                            <div class="pt-5 pb-6">
+                                <span class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                        class="size-5 text-gray-700 text-center">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                                    </svg></span>
+                                <p class="mb-2 text-xs text-center px-4 text-gray-500 darks:text-gray-400">Click to
+                                    upload the picture</p>
+                            </div>
+                            <input multiple (change)="uploadImages($event)" id="dropzone-file" type="file"
+                                accept=".jpg,.jpeg,.png" class="hidden" />
+                        </label>
+                    </div>
+                </div>
+                <div class="flex justify-end" (click)="saveData('basic')">
+                    <button class="bg-primary text-white font-medium text-sm px-4 -mt-4 py-2 rounded-md ">Next</button>
+                </div>
+            </div>
+
+        </mat-step>
+        <mat-step label="Rent Information">
+            <div formGroupName="rentInformation"
+                class="mx-12 my-2 bg-white shadow-md rounded-xl border-gray-200/75 border py-4 px-4 space-y-4">
+                <div class="space-y-2">
+                    <p class="text-gray-900 text-xs font-medium pb-2">
+                        Price & Duration:
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <label for="unitName" class="block text-xs text-gray-700">
+                                Expected Rent Per Month
+                            </label>
+                            <input formControlName="expected_rent" type="text" id="unitName"
+                                class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                        </div>
+                        <div class="flex items-center mt-4">
+                            <input formControlName="rent_negotiable" checked id="checked-checkbox" type="checkbox"
+                                value=""
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                            <label for="checked-checkbox" class="ms-2 text-sm text-gray-600">Rent Negotiable</label>
+                        </div>
+                        <div>
+                            <label for="unitName" class="block text-xs text-gray-700">
+                                Stay Type
+                            </label>
+                            <select name="unit_type" id="unit_type" formControlName="stay_type"
+                                class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm">
+                                <option value="">Please select</option>
+                                <option value="Long term(6+ months)">Long term(6+ months)</option>
+                                <option value="Short term">Short term</option>
+                                <option value="Both">Both</option>
+
+                            </select>
+                        </div>
+                        <div>
+                            <label for="unitName" class="block text-xs text-gray-700">
+                                Late Charges
+                            </label>
+                            <input formControlName="late_charges" type="text" id="unitName"
+                                class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                        </div>
+                        <div>
+                            <label for="unitName" class="block text-xs text-gray-700">Minimum Down Payment
+                            </label>
+                            <input formControlName="minimum_down_payment" type="text" id="unitName"
+                                class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                        </div>
+                    </div>
+                    <div class="flex gap-6 mt-2 justify-end">
+                        <button
+                            class="bg-gray-600 text-white font-medium text-sm px-4 py-2 rounded-md ">Previous</button>
+                        <button class="bg-primary text-white font-medium text-sm px-4 py-2 rounded-md ">Next</button>
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step label="Facilities & Additional Information">
+            <div formGroupName="facilities"
+                class="mx-12 my-2 bg-white shadow-md rounded-xl border-gray-200/75 border py-4 px-4 space-y-4">
+                <div class="space-y-2">
+
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <label for="unitName" class="block text-xs text-gray-700">
+                                Is this room/apartment furnished ?
+                            </label>
+
+                            <div class="flex gap-6 py-2">
+                                <div class="flex items-center ">
+                                    <input formControlName="furnished" id="furnished" type="radio" value="Furnished"
+                                        name="furnished"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                    <label for="Furnished" class="ms-2 text-sm  text-gray-900 ">Yes</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input formControlName="furnished" id="furnished" type="radio" value="Not Furnished"
+                                        name="furnished"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                    <label for="Not Furnished" class="ms-2 text-sm  text-gray-900 ">No</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div>
+                        <p>Amenities Included</p>
+                        <div class="grid grid-cols-5">
+                            <div *ngFor="let amenitiy of amenities_included" class="flex items-center mt-4">
+                                <input (change)="handleAmenities(amenitiy)" [id]="amenitiy" type="checkbox"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                                <label [for]="amenitiy" class="ms-2 text-sm text-gray-600">{{amenitiy}}</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="flex gap-6 mt-2 justify-end">
+                        <button
+                            class="bg-gray-600 text-white font-medium text-sm px-4 py-2 rounded-md ">Previous</button>
+                        <button class="bg-primary text-white font-medium text-sm px-4 py-2 rounded-md ">Next</button>
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step label="Preview & Submit">
+
+        </mat-step>
+    </mat-stepper>
+</div>

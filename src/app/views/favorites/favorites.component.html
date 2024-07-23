@@ -1,0 +1,8 @@
+<div>
+    <h2 class="font-semibold py-6 text-xl">All Listings</h2>
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div *ngFor="let item of favorite_items">
+            <app-apartment-card  [apartmentData]="item"></app-apartment-card>
+        </div>
+    </div>
+</div>

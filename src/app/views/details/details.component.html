@@ -1,0 +1,115 @@
+<div class="py-4 flex">
+    <div class=" w-[65%]">
+        <app-breadcrumb [current_data]="current_data"></app-breadcrumb>
+        <div class="py-6 flex gap-6">
+            <div>
+                <img [src]="'assets/apartment1.jpg'"
+                    class="w-[130px] object-fill  rounded-xl shadow-lg bg-transparent h-[130px]">
+            </div>
+            <div class="space-y-0.5">
+                <p class="font-bold text-xl text-gray-800">Home 1</p>
+                <p class="text-sm">Locations dnbjqdwh</p>
+                <p class="text-sm">$750</p>
+                <p class="text-sm">5 Reviews </p>
+                <button class="bg-primary px-6 rounded-md py-1.5 text-white  text-sm">Contact Now</button>
+            </div>
+            <span (click)="handlefavorites(current_id)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-5 hover:fill-red-600 hover:stroke-none cursor-pointer mt-1">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+            </span>
+        </div>
+        <div class="w-[90%]">
+            <mat-tab-group>
+                <mat-tab label=" Overview">
+                    <div class="p-4">
+                        <p class="font-semibold text-lg text-gray-800">Basic Information:</p>
+                        <ul class="ml-12 list-disc">
+                            <li>Apartment Name: {{current_data?.unitInformation?.unit_name}}</li>
+                            <li>Location : {{current_data?.unitInformation?.unit_address}}</li>
+                            <li>Type of Apartment : {{current_data?.unitInformation?.unit_type}}</li>
+                            <li>Size: {{current_data?.unitInformation?.unit_area}}</li>
+                            <li>Availability : {{current_data?.unitInformation?.unit_availability}}</li>
+                        </ul>
+                        <p class="font-semibold text-lg text-gray-800">Description:</p>
+                        <ul class="ml-12 list-disc">
+                            <li>Key Features: Highlight unique selling points (e.g., balcony, renovated kitchen)</li>
+                            <li>Amenities: List amenities like parking, laundry facilities, pool, gym, etc</li>
+                            <li>Utilities: Clarify what utilities are included (e.g., water, electricity, internet)</li>
+                        </ul>
+                        <p class="font-semibold text-lg text-gray-800">Neighborhood Information:</p>
+                        <ul class="ml-12 list-disc">
+                            <li>Nearby Facilities: Proximity to schools, hospitals, parks, shopping centers</li>
+                            <li>Transportation: Access to public transport, major roads/highways</li>
+                        </ul>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Rent Information">
+                    <div class="p-4">
+                        <p class="font-semibold text-lg text-gray-800">Rent Information:</p>
+                        <ul class="ml-12 list-disc">
+                            <li> Monthly Rent: Base rent amount</li>
+                            <li> Lease Terms: Length of lease (e.g., 12 months)</li>
+                            <li> Deposit: Security deposit amount</li>
+                            <li> Additional Fees: Application fee, pet fee, parking fee, etc.</li>
+                        </ul>
+                        <p class="font-semibold text-lg text-gray-800">Financial Details:</p>
+                        <ul class="ml-12 list-disc">
+                            <li>Payment Options: Methods accepted (e.g., online payments, checks)</li>
+                            <li>Late Fees: Policy on late payments
+                            </li>
+                        </ul>
+                        <p class="font-semibold text-lg text-gray-800">Lease Agreement Details:</p>
+                        <ul class="ml-12 list-disc">
+                            <li>Terms and Conditions: Overview of lease terms</li>
+                            <li>Tenant Responsibilities: Maintenance, utilities payment, etc.
+                            </li>
+                        </ul>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Ratings & Reviews">
+                    <div class="p-4">
+                        <div class="pb-2">
+
+                            <div [formGroup]="reviewForm">
+                                <label for="review" class="block text-sm font-medium text-gray-700"> Your Review
+                                </label>
+
+                                <textarea id="review"
+                                    class="mt-2 w-full rounded-lg border-gray-200 align-top shadow-sm sm:text-sm"
+                                    rows="4" formControlName="review" placeholder="Enter your review..."></textarea>
+                                <div class="flex justify-end my-2"> <button (click)="submitRating()"
+                                        class="bg-primary  px-4 py-1.5 font-a text-sm  rounded-md text-white">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4" *ngFor="let review of current_data?.ratings">
+                            <app-review [data]="review"></app-review>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+
+    </div>
+    <div>
+        <img [src]="'assets/apartment1.jpg'" class=" object-fill  rounded-xl shadow-lg bg-transparent h-[300px]">
+        <div class="grid grid-cols-4 gap-4 mt-4">
+            <img [src]="'assets/apartment1.jpg'" class=" object-fill  rounded-xl shadow-lg bg-transparent h-[70px]">
+            <img [src]="'assets/apartment1.jpg'" class=" object-fill  rounded-xl shadow-lg bg-transparent h-[70px]">
+            <img [src]="'assets/apartment1.jpg'" class=" object-fill  rounded-xl shadow-lg bg-transparent h-[70px]">
+            <img [src]="'assets/apartment1.jpg'" class=" object-fill  rounded-xl shadow-lg bg-transparent h-[70px]">
+        </div>
+    </div>
+
+</div>
+<div>
+    <p class="text-xl font-bold">Recommended</p>
+    <div class="grid grid-cols-4 gap-6 py-4">
+        <ng-container *ngFor="let item of listings.slice(0,4)">
+            <app-apartment-card [apartmentData]="item"></app-apartment-card>
+        </ng-container>
+    </div>
+</div>
