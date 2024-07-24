@@ -8,3 +8,6 @@
         border-radius: 12px !important;
     }
 }
+::ng-deep .owl-theme .owl-dots .owl-dot.active span{
+    background-color: #4f46e5 !important;
+}
