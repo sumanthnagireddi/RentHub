@@ -12,6 +12,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class NavbarComponent {
   userName: any;
+  openMobileMenu:boolean=false
   ngOnInit(): void {
     console.log(localStorage.getItem('loggedInuser'));
   }
