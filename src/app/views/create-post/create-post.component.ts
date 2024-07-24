@@ -10,10 +10,14 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatStepperModule } from '@angular/material/stepper';
-import { reduce } from 'rxjs';
+import {
+  MatStepperModule,
+  StepperOrientation,
+} from '@angular/material/stepper';
+import { map, Observable, reduce } from 'rxjs';
 import { RentalService } from '../../services/rental.service';
 import { v4 as uuidv4 } from 'uuid';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-create-post',
@@ -23,10 +27,6 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrl: './create-post.component.css',
 })
 export class CreatePostComponent {
-  constructor(
-    private _formBuilder: FormBuilder,
-    private rentalService: RentalService
-  ) {}
   rent_form!: FormGroup;
   amenities_included: string[] = [
     'Gym/Fitness Center',
@@ -42,7 +42,19 @@ export class CreatePostComponent {
     'Elevator',
     'Club House',
   ];
+  stepperOrientation!: Observable<StepperOrientation>;
+
   amenties_selected: string[] = [];
+  constructor(
+    private _formBuilder: FormBuilder,
+    private rentalService: RentalService,
+    breakpointObserver: BreakpointObserver
+  ) {
+    this.stepperOrientation = breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
+  }
+
   ngOnInit(): void {
     this.rent_form = this._formBuilder.group({
       unitInformation: this._formBuilder.group({

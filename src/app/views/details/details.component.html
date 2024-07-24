@@ -1,9 +1,9 @@
-<div class="py-4 flex">
-    <div class=" w-[65%]">
+<div class="py-4 lg:flex">
+    <div class=" lg:w-[65%]">
         <app-breadcrumb [current_data]="current_data"></app-breadcrumb>
         <div class="py-6 flex gap-6">
             <div>
-                <img [src]="images[0]" class="w-[130px] object-fill  rounded-xl shadow-lg bg-transparent h-[130px]">
+                <img [src]="images[0]" class="w-[200px] lg:w-[130px] object-fill  rounded-xl shadow-lg bg-transparent h-[130px]">
             </div>
             <div class="space-y-0.5">
                 <p class="font-bold text-xl text-gray-800">{{current_data?.unitInformation?.title}}</p>
@@ -11,7 +11,6 @@
 
                 <p class="text-sm">{{current_data?.unitInformation?.description}}</p>
                 <p class="text-sm font-medium">{{current_data?.rentInformation?.expected_rent}} USD</p>
-                <!-- <p class="text-sm font-medium">{{current_data?.ratings?.length}} Reviews</p> -->
                 <button class="bg-primary px-6 rounded-md py-1.5 text-white  text-sm">Contact Now</button>
 
             </div>
@@ -113,7 +112,7 @@
 </div>
 <div>
     <p class="text-xl font-bold">Recommended</p>
-    <div class="grid grid-cols-4 gap-6 py-4">
+    <div class="grid grid-col-1 sm:grid-col-2 lg:grid-cols-4 gap-6 py-4">
         <ng-container *ngFor="let item of listings.slice(0,4)">
             <app-apartment-card [apartmentData]="item"></app-apartment-card>
         </ng-container>

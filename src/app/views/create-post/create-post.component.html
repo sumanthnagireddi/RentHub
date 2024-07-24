@@ -1,11 +1,17 @@
-<div class="p-4" [formGroup]="rent_form">
-    <mat-stepper>
+<div class="lg:px-4" [formGroup]="rent_form">
+    <div class="pb-4">
+        <p class="text-sm font-medium">Create Your Property Listing</p>
+        <small class="text-xs text-gray-700">Effortlessly showcase your property for rent with our streamlined listing form. Maximize your rental
+            opportunities today!</small>
+
+    </div>
+    <mat-stepper [orientation]="(stepperOrientation | async)!">
         <mat-step label="Basic Information">
             <div [formGroupName]="'unitInformation'"
-                class="mx-12 my-6 bg-white shadow-md rounded-xl border-gray-200 border py-4 px-4 space-y-4">
+                class="lg:mx-12 lg:my-6 w-full bg-white shadow-md rounded-xl border-gray-200 border py-4 px-4 space-y-4">
                 <div class="space-y-2">
                     <p class="text-gray-900 text-xs font-medium pb-1">Unit Information:</p>
-                    <div class="grid grid-cols-2 pb-2 gap-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 pb-2 gap-6">
                         <div>
                             <label for="unitName" class="block text-xs text-gray-700">Ad Title<span
                                     class="text-red-600">*</span></label>
@@ -19,7 +25,7 @@
                                 class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
                         </div>
                     </div>
-                    <div class="grid grid-cols-4 gap-6 justify-between">
+                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 justify-between">
                         <div class="flex-1">
                             <label for="unitName" class="block text-xs text-gray-700">Unit Type
                                 (Apartment/Building)<span class="text-red-600">*</span></label>
@@ -40,20 +46,22 @@
                                 class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
                         </div>
                         <div class="mt-1">
-                            <label for="unitName" class="block text-xs text-gray-700">Is this a shared Property or Individual Property
+                            <label for="unitName" class="block text-xs text-gray-700">Is this a shared Property or
+                                Individual Property
                                 ?</label>
                             <div class="flex gap-6 py-2">
                                 <div class="flex items-center ">
-                                    <input formControlName="shared_property" id="shared_property" type="radio" value="Shared Property"
-                                        name="shared_property"
+                                    <input formControlName="shared_property" id="shared_property" type="radio"
+                                        value="Shared Property" name="shared_property"
                                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
                                     <label for="Shared Property" class="ms-2 text-sm  text-gray-900 ">Shared</label>
                                 </div>
                                 <div class="flex items-center">
-                                    <input formControlName="shared_property" id="shared_property" type="radio" value="Individual Property"
-                                        name="shared_property"
+                                    <input formControlName="shared_property" id="shared_property" type="radio"
+                                        value="Individual Property" name="shared_property"
                                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
-                                    <label for="Individual Property" class="ms-2 text-sm  text-gray-900 ">Individual</label>
+                                    <label for="Individual Property"
+                                        class="ms-2 text-sm  text-gray-900 ">Individual</label>
                                 </div>
                             </div>
                         </div>
@@ -65,14 +73,15 @@
                     </div>
                 </div>
                 <p class="text-gray-900 text-xs font-medium">Unit Location:</p>
-                   
+
                 <div>
-                    <div class="grid grid-cols-3 gap-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <div>
-                            <label for="unit_availability" class="block text-xs text-gray-700">Unit Available From</label>
+                            <label for="unit_availability" class="block text-xs text-gray-700">Unit Available
+                                From</label>
                             <input type="date" id="unit_availability" formControlName="unit_availability"
                                 class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
-                            
+
                         </div>
                         <div class="col-span-2">
                             <label for="streetAddress" class="block text-xs text-gray-700">Street Address</label>
@@ -121,13 +130,13 @@
         </mat-step>
         <mat-step label="Rent Information">
             <div formGroupName="rentInformation"
-                class="mx-12 my-2 bg-white shadow-md rounded-xl border-gray-200/75 border py-4 px-4 space-y-4">
+                class="lg:mx-12 my-2 bg-white shadow-md rounded-xl border-gray-200/75 border py-4 px-4 space-y-4">
                 <div class="space-y-2">
                     <p class="text-gray-900 text-xs font-medium pb-2">
                         Price & Duration:
                     </p>
 
-                    <div class="grid grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <div>
                             <label for="unitName" class="block text-xs text-gray-700">
                                 Expected Rent Per Month
@@ -178,11 +187,11 @@
         </mat-step>
         <mat-step label="Facilities & Additional Information">
             <div formGroupName="facilities"
-                class="mx-12 my-2 bg-white shadow-md rounded-xl border-gray-200/75 border py-4 px-4 space-y-4">
+                class="lg:mx-12 my-2 bg-white shadow-md rounded-xl border-gray-200/75 border py-4 px-4 space-y-4">
                 <div class="space-y-2">
 
 
-                    <div class="grid grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <div>
                             <label for="unitName" class="block text-xs text-gray-700">
                                 Is this room/apartment furnished ?
@@ -208,7 +217,7 @@
                     </div>
                     <div>
                         <p>Amenities Included</p>
-                        <div class="grid grid-cols-5">
+                        <div class="grid grid-cols-1 lg:grid-cols-5">
                             <div *ngFor="let amenitiy of amenities_included" class="flex items-center mt-4">
                                 <input (change)="handleAmenities(amenitiy)" [id]="amenitiy" type="checkbox"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
