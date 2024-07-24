@@ -13,10 +13,7 @@ export const HOMES_DATA: any[] = [
         "unit_images": ["assets/apartmen4.jpg", "assets/interior1.avif", "assets/interior2.avif", "assets/interior3.avif"]
       },
       "rentInformation": {
-        "expected_rent": {
-          "amount": 2500,
-          "currency": "USD"
-        },
+        "expected_rent": "2500 USD",
         "rent_negotiable": true,
         "stay_type": "Long-term",
         "minimum_rent_time": "12 months",
@@ -25,7 +22,7 @@ export const HOMES_DATA: any[] = [
       },
       "facilities": {
         "furnished": "Fully furnished",
-        "amenties": "Pool, Gym, Parking"
+        "amenties": ["Pool, Gym, Parking"]
       },
       "ratings": [
         {
@@ -54,10 +51,7 @@ export const HOMES_DATA: any[] = [
         "unit_images": ["assets/apartmen9.jpg", "assets/interior1.avif", "assets/interior2.avif", "assets/interior3.avif"]
       },
       "rentInformation": {
-        "expected_rent": {
-          "amount": 1500,
-          "currency": "USD"
-        },
+        "expected_rent": "1500 USD",
         "rent_negotiable": false,
         "stay_type": "Short-term",
         "minimum_rent_time": "6 months",
@@ -66,7 +60,7 @@ export const HOMES_DATA: any[] = [
       },
       "facilities": {
         "furnished": "Partially furnished",
-        "amenties": "Laundry, Elevator"
+        "amenties":[ "Laundry, Elevator"]
       }
     },
     {
@@ -83,10 +77,7 @@ export const HOMES_DATA: any[] = [
         "unit_images": ["assets/apartment2.jpg", "assets/interior1.avif", "assets/interior2.avif", "assets/interior3.avif"]
       },
       "rentInformation": {
-        "expected_rent": {
-          "amount": 1800,
-          "currency": "USD"
-        },
+        "expected_rent":"1800 USD",
         "rent_negotiable": true,
         "stay_type": "Long-term",
         "minimum_rent_time": "12 months",
@@ -95,7 +86,7 @@ export const HOMES_DATA: any[] = [
       },
       "facilities": {
         "furnished": "Fully furnished",
-        "amenties": "Swimming Pool, Security"
+        "amenties": ["Swimming Pool, Security"]
       }
     },
     {
@@ -112,10 +103,7 @@ export const HOMES_DATA: any[] = [
         "unit_images": ["assets/apartment4.jpg","assets/apartment4a.jpg","assets/apartment4b.jpg","assets/apartment4c.jpg"]
       },
       "rentInformation": {
-        "expected_rent": {
-          "amount": 3000,
-          "currency": "USD"
-        },
+        "expected_rent": "3000 USD",
         "rent_negotiable": false,
         "stay_type": "Long-term",
         "minimum_rent_time": "24 months",
@@ -124,7 +112,7 @@ export const HOMES_DATA: any[] = [
       },
       "facilities": {
         "furnished": "Unfurnished",
-        "amenties": "Backyard, Garage"
+        "amenties": ["Backyard, Garage"]
       }
     },
     {
@@ -141,10 +129,7 @@ export const HOMES_DATA: any[] = [
         "unit_images": ["assets/apartment5.webp"]
       },
       "rentInformation": {
-        "expected_rent": {
-          "amount": 2200,
-          "currency": "USD"
-        },
+        "expected_rent": "2200 USD",
         "rent_negotiable": true,
         "stay_type": "Long-term",
         "minimum_rent_time": "18 months",
@@ -153,7 +138,7 @@ export const HOMES_DATA: any[] = [
       },
       "facilities": {
         "furnished": "Partially furnished",
-        "amenties": "Fireplace, Garden"
+        "amenties": ["Fireplace, Garden"]
       }
     },
     {
@@ -170,10 +155,7 @@ export const HOMES_DATA: any[] = [
         "unit_images": ["assets/apartment6.jpg"]
       },
       "rentInformation": {
-        "expected_rent": {
-          "amount": 2000,
-          "currency": "USD"
-        },
+        "expected_rent":"2000 USD",
         "rent_negotiable": false,
         "stay_type": "Short-term",
         "minimum_rent_time": "9 months",
@@ -182,7 +164,7 @@ export const HOMES_DATA: any[] = [
       },
       "facilities": {
         "furnished": "Fully furnished",
-        "amenties": "Rooftop Terrace, Gym"
+        "amenties": ["Rooftop Terrace, Gym"]
       }
     },
     {
@@ -199,10 +181,7 @@ export const HOMES_DATA: any[] = [
         "unit_images": ["assets/apartment7.jpg"]
       },
       "rentInformation": {
-        "expected_rent": {
-          "amount": 1700,
-          "currency": "USD"
-        },
+        "expected_rent": "1700 USD",
         "rent_negotiable": true,
         "stay_type": "Short-term",
         "minimum_rent_time": "3 months",
@@ -211,7 +190,7 @@ export const HOMES_DATA: any[] = [
       },
       "facilities": {
         "furnished": "Partially furnished",
-        "amenties": "Dock, BBQ Area"
+        "amenties": ["Dock, BBQ Area"]
       }
     },
     {
@@ -228,10 +207,7 @@ export const HOMES_DATA: any[] = [
         "unit_images": ["assets/apartment8.jpg"]
       },
       "rentInformation": {
-        "expected_rent": {
-          "amount": 1200,
-          "currency": "USD"
-        },
+        "expected_rent": "1200 USD",
         "rent_negotiable": false,
         "stay_type": "Long-term",
         "minimum_rent_time": "12 months",
@@ -240,7 +216,7 @@ export const HOMES_DATA: any[] = [
       },
       "facilities": {
         "furnished": "Fully furnished",
-        "amenties": "Study Room, Laundry"
+        "amenties": ["Study Room, Laundry"]
       }
     },
     {
@@ -257,10 +233,7 @@ export const HOMES_DATA: any[] = [
         "unit_images": ["assets/apartmen9.jpg","assets/apartment9a.jpg","assets/apartment9b.jpg","assets/apartment9c.jpg"]
       },
       "rentInformation": {
-        "expected_rent": {
-          "amount": 5000,
-          "currency": "USD"
-        },
+        "expected_rent": "5000 USD",
         "rent_negotiable": true,
         "stay_type": "Long-term",
         "minimum_rent_time": "24 months",
@@ -269,7 +242,7 @@ export const HOMES_DATA: any[] = [
       },
       "facilities": {
         "furnished": "Fully furnished",
-        "amenties": "Private Elevator, Wine Cellar"
+        "amenties": ["Private Elevator, Wine Cellar"]
       }
     },
     {
@@ -286,10 +259,7 @@ export const HOMES_DATA: any[] = [
         "unit_images": ["assets/apartment10.jpg"      ,"assets/apartmenta.jpg","assets/apartment10b.jpg","assets/apartment10c.jpg"]
       },
       "rentInformation": {
-        "expected_rent": {
-          "amount": 2800,
-          "currency": "USD"
-        },
+        "expected_rent": "2800 USD",
         "rent_negotiable": false,
         "stay_type": "Long-term",
         "minimum_rent_time": "18 months",
@@ -298,7 +268,7 @@ export const HOMES_DATA: any[] = [
       },
       "facilities": {
         "furnished": "Partially furnished",
-        "amenties": "Garden, Barn"
+        "amenties": ["Garden, Barn"]
       }
     }
   ];
