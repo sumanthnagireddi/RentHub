@@ -20,9 +20,9 @@ import { NgFor } from '@angular/common';
 export class CarouselComponent1 {
   customOptions: OwlOptions = {
     loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
     dots: true,
     autoplay:true,
     autoplaySpeed:2000,
@@ -56,6 +56,5 @@ export class CarouselComponent1 {
   rentalService = inject(RentalService);
   ngOnInit(): void {
     this.top_listings = this.rentalService.getAllListings()?.slice(0, 3);
-   
   }
 }

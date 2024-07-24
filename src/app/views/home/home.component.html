@@ -1,8 +1,8 @@
 <app-carousel/>
 <div>
     <h2 class="font-semibold pb-6 text-lg">All Listings</h2>
-    <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 h-full">
-        <div *ngFor="let item of listings">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 ">
+        <div *ngFor="let item of listings" >
             <app-apartment-card (viewDetailsEventEmitter)="navigateToViewDetails($event)" [apartmentData]="item"></app-apartment-card>
         </div>
     </div>

@@ -8,7 +8,7 @@ import {
   RouterModule,
 } from '@angular/router';
 import { ApartmentCardComponent } from '../../components/apartment-card/apartment-card.component';
-import { CommonModule, SlicePipe } from '@angular/common';
+import { CommonModule, NgFor, SlicePipe } from '@angular/common';
 import { ReviewComponent } from '../../components/review/review.component';
 import { RentalService } from '../../services/rental.service';
 import {
@@ -28,6 +28,7 @@ import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.comp
     CommonModule,
     ReviewComponent,
     BreadcrumbComponent,
+    NgFor,
     ReactiveFormsModule,
   ],
   templateUrl: './details.component.html',
@@ -38,6 +39,8 @@ export class DetailsComponent implements OnInit {
   current_data: any;
   current_id!: string;
   reviewForm!: FormGroup;
+  images:any=[]
+  currentImage:any
   rentalService = inject(RentalService);
   constructor(
     private router: Router,
@@ -51,6 +54,8 @@ export class DetailsComponent implements OnInit {
       this.current_id = val['id'];
       this.listings = this.rentalService.getAllListings();
       this.current_data = this.rentalService.getHomeByID(this.current_id)[0];
+      this.images=this.current_data?.unitInformation?.unit_images;
+      this.currentImage=this.images[0]
       console.log(this.current_data);
       this.reviewForm = this.fb.group({
         userName: ['', Validators.required],

@@ -16,7 +16,7 @@ export class AppComponent {
   title = 'rent-hub-test';
   ngOnInit(): void {
     if (!localStorage.getItem('homes')) {
-      localStorage.setItem('homes',JSON.stringify(HOMES_DATA))
+      localStorage.removeItem('homes');
     }
   }
 }

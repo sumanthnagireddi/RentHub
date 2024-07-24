@@ -7,35 +7,43 @@
           <ng-template carouselSlide *ngIf="item">
             <div class="sm:flex block space-y-2 lg:space-y-0 space-x-0 lg:space-x-2 ">
               <div>
-                <img [src]="item?.unitInformation?.unit_images"
+                <img id="{{item.id}}" [src]="item?.unitInformation?.unit_images[0]?item?.unitInformation?.unit_images[0]:item?.unitInformation?.unit_images"
                   class="w-full lg:w-[70vw]   rounded-xl  shadow-lg h-[180px]">
               </div>
-              <div class=" p-4  bg-blue-100 flex-1  rounded-xl ">
+              <div class=" p-4 relative bg-blue-100 flex-1  rounded-xl ">
                 <div class="px-2 space-y-1">
                   <div class="flex justify-between items-center">
                     <p class="text-xl font-bold text-blue-600">$755.00</p>
                     <div class="flex gap-2 items-center">
-  
+
                       <span
                         class="material-symbols-outlined w-7 h-7 text-center flex justify-center items-center rounded-full shadow-sm cursor-pointer text-secondary text-2xl">
                         open_in_new
                       </span>
                     </div>
                   </div>
-                  <div class="space-y-0">
+                  <div class="grid gap-y-2">
                     <p class="text-sm font-medium text-gray-800">{{item?.unitInformation?.title}}</p>
-                    <span class="text-[12px]  text-gray-600">{{item?.unitInformation?.description}}</span>
+                    <small class="text-xs   text-gray-600">{{item?.unitInformation?.description?.substring(0,100)}}</small>
                   </div>
-                  <div class="flex gap-2 items-center">
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="#2563eb" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                      </svg>
-                    </span>
-                    <p class="text-gray-600 text-sm font-semibold">{{item?.unitInformation?.unit_address}}</p>
+                  <div class="absolute bottom-1 ">
+                    <div class="flex gap-2 items-center">
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                          stroke="#2563eb" class="size-4">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                        </svg>
+                      </span>
+                      <p class="text-gray-600 text-xs font-semibold">{{item?.unitInformation?.unit_address}}</p>
+                    </div>
+                    <div class="border-t-2  gap-2 w-full text-blue-600 flex justify-between py-2  border-gray-200">
+
+                      <span class="text-xs font-medium">{{item?.facilities?.amenties}}</span>
+                    </div>
+
                   </div>
                 </div>
               </div>
@@ -43,7 +51,7 @@
           </ng-template>
         </ng-container>
       </owl-carousel-o>
-  
+
     </div>
   </div>
 </div>

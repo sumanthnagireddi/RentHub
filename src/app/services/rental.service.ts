@@ -1,19 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { HOMES_DATA } from '../shared/const';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RentalService {
-  homes_data: any = localStorage.getItem('homes');
+  homes_data: any = localStorage.getItem('homes')?localStorage.getItem('homes'):null;
   favorites_data: any = localStorage.getItem('favorites');
   homes: any = new Subject<any>();
   favorites: any = new Subject<any>();
   constructor(private http: HttpClient) {}
 
   getAllListings() {
-    this.homes = JSON.parse(this.homes_data);
+    const static_data: any = HOMES_DATA;
+    this.homes = [...static_data];
     return this.homes;
   }
 
