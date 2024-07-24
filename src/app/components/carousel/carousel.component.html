@@ -1,33 +1,29 @@
 <div class="flex overflow-hidden">
   <div class="flex-1 py-2 ">
-    <owl-carousel-o [options]="customOptions">
+    <owl-carousel-o [options]="customOptions" *ngIf="top_listings">
       <ng-container *ngFor="let item of top_listings">
-        <ng-template carouselSlide>
-          <div class="flex space-x-2 ">
-            <img [src]="item?.unitInformation?.unit_images"
-              class="  object-cover  lg:object-fill rounded-xl shadow-lg bg-transparent h-[180px]">
-            <div class="w-1/3 p-4 bg-blue-100   rounded-xl shadow-xl bg-transparent">
+        <ng-template carouselSlide *ngIf="item">
+          <div class="sm:flex block space-y-2 lg:space-y-0 space-x-0 lg:space-x-2 ">
+            <div>
+              <img [src]="item?.unitInformation?.unit_images"
+                class="w-full lg:w-[70vw]   rounded-xl  shadow-lg h-[180px]">
+            </div>
+            <div class=" p-4  bg-blue-100   rounded-xl ">
               <p class="font-medium text-gray-800 text-base">Featured Listings</p>
-              <div class="px-6 space-y-1">
+              <div class="px-2 space-y-1">
                 <div class="flex justify-between items-center">
                   <p class="text-xl font-bold text-blue-600">$755.00</p>
                   <div class="flex gap-2 items-center">
-                    <span class="p-1.5 rounded-full shadow-sm border border-gray-300 cursor-pointer ">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="#f43f5e" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                      </svg>
-                    </span>
+
                     <span
-                      class="material-symbols-outlined w-10 h-10 text-center flex justify-center items-center rounded-full shadow-sm cursor-pointer text-secondary text-2xl">
+                      class="material-symbols-outlined w-7 h-7 text-center flex justify-center items-center rounded-full shadow-sm cursor-pointer text-secondary text-2xl">
                       open_in_new
                     </span>
                   </div>
                 </div>
-                <div>
-                  <p class="text-base font-medium text-gray-800">{{item?.unitInformation?.title}}</p>
-                  <span class="text-xs   text-gray-600">{{item?.unitInformation?.description}}</span>
+                <div class="space-y-0">
+                  <p class="text-sm font-medium text-gray-800">{{item?.unitInformation?.title}}</p>
+                  <span class="text-[12px]  text-gray-600">{{item?.unitInformation?.description}}</span>
                 </div>
                 <div class="flex gap-2 items-center">
                   <span>
@@ -46,5 +42,6 @@
         </ng-template>
       </ng-container>
     </owl-carousel-o>
+
   </div>
 </div>

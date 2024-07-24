@@ -1,0 +1,10 @@
+::ng-deep .owl-carousel .owl-item img {
+    width: 70vw !important;
+}
+
+@media screen and (max-width: 640px) {
+    ::ng-deep .owl-carousel .owl-item img {
+        width: 100vw !important;
+        border-radius: 12px !important;
+    }
+}

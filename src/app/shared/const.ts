@@ -48,7 +48,7 @@ export const HOMES_DATA:any=[
             "unit_area": "600 sqft",
             "unit_number": "B-201",
             "unit_address": "456 Elm Street",
-            "unit_images": "image-url-2.jpg"
+             "unit_images": "assets/apartment1.jpg"
         },
         "rentInformation": {
             "expected_rent": "1500",
@@ -74,7 +74,7 @@ export const HOMES_DATA:any=[
             "unit_area": "1000 sqft",
             "unit_number": "C-301",
             "unit_address": "789 Oak Avenue",
-            "unit_images": "image-url-3.jpg"
+             "unit_images": "assets/apartment1.jpg"
         },
         "rentInformation": {
             "expected_rent": "1800",
