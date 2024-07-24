@@ -303,3 +303,18 @@ export const HOMES_DATA: any[] = [
     }
   ];
   
+  export const AMENITIES:string[]= [
+    'Gym/Fitness Center',
+    'Swimming Pool',
+    'Car Parking',
+    'Visitors Parking',
+    'Power Backup',
+    'Garbage Disposal',
+    'Private Lawn',
+    'Water Heater',
+    'Plant Security System',
+    'Laundry Service',
+    'Elevator',
+    'Club House',
+  ];
+

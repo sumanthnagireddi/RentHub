@@ -1,0 +1,70 @@
+<div class="lg:mx-12 card mb-2  bg-white shadow-md rounded-xl  border-gray-200/75 border py-2 px-4 space-y-4">
+    <div class=" sm:flex gap-2">
+        <div class="flex-1 sm:w-[70%]">
+            <p class="text-sm font-medium"> Preview of Your Property</p>
+            <small class="text-xs text-gray-700">See how your listing will appear to others before you submit , if any
+                changes needed , please click on previous and make the changes and submit</small>
+            <div class="py-2">
+                <p class="font-medium text-base text-gray-900">Basic Information:</p>
+                <ul class="ml-12 list-disc">
+                    <li class="text-sm text-gray-800 font-medium">Apartment Name:
+                        {{current_data?.unitInformation?.unit_name}}</li>
+                    <li class="text-sm text-gray-800 font-medium">Location :
+                        {{current_data?.unitInformation?.unit_address}}
+                    </li>
+                    <li class="text-sm text-gray-800 font-medium">Type of Apartment :
+                        {{current_data?.unitInformation?.unit_type}}</li>
+                    <li class="text-sm text-gray-800 font-medium">Size: {{current_data?.unitInformation?.unit_area}}
+                    </li>
+                    <li class="text-sm text-gray-800 font-medium">Availability :
+                        {{current_data?.unitInformation?.unit_availability}}</li>
+                </ul>
+            </div>
+            <div class="py-2">
+                <p class="font-medium text-base text-gray-900">Rent Information:</p>
+                <ul class="ml-12 list-disc">
+                    <li class="text-sm text-gray-800 font-medium"> Monthly Rent:
+                        {{current_data?.rentInformation?.expected_rent}}</li>
+                    <li class="text-sm text-gray-800 font-medium"> Lease Terms:
+                        {{current_data?.rentInformation?.minimum_rent_time}}</li>
+                    <li class="text-sm text-gray-800 font-medium"> Stay Type:
+                        {{current_data?.rentInformation?.stay_type}}
+                    </li>
+                    <li class="text-sm text-gray-800 font-medium">Late Fees:
+                        {{current_data?.rentInformation?.late_charges}}
+                    <li class="text-sm text-gray-800 font-medium"> Deposit:
+                        {{current_data?.rentInformation?.minimum_down_payment}}</li>
+                    <li class="text-sm text-gray-800 font-medium"> Late Charges:
+                        {{current_data?.rentInformation?.late_charges}}</li>
+                </ul>
+            </div>
+            <div class="py-2">
+                <p class="font-medium text-base text-gray-900">Facilities:</p>
+                <ul class="ml-12 list-disc">
+                    <li class="text-sm text-gray-800 font-medium">Furnished:{{current_data?.facilities?.furnished}}</li>
+                    <li class="text-sm text-gray-800 font-medium">Amenities: {{current_data?.facilities?.amenties}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="sm:w-[30%] ">
+            <div class="px-4 py-1.5 mb-2 rounded-lg border border-emerald-500 bg-emerald-100 text-emerald-600 flex">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>
+
+                </span>
+                <span class="text-xs font-medium">This is a preview when your property is published</span>
+            </div>
+            <app-apartment-card [apartmentData]="current_data"></app-apartment-card>
+        </div>
+    </div>
+    <div class="flex gap-6 mt-2 justify-end">
+        <button (click)="editEvent.emit(true)"
+            class="bg-gray-600 text-white font-medium text-sm px-4 py-2 rounded-md ">Edit</button>
+        <button (click)="submitEvent.emit(true)"
+            class="bg-primary text-white font-medium text-sm px-4 py-2 rounded-md ">Submit</button>
+    </div>
+</div>

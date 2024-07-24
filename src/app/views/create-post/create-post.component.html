@@ -1,28 +1,38 @@
 <div class="lg:px-4" [formGroup]="rent_form">
     <div class="pb-4">
         <p class="text-sm font-medium">Create Your Property Listing</p>
-        <small class="text-xs text-gray-700">Effortlessly showcase your property for rent with our streamlined listing form. Maximize your rental
+        <small class="text-xs text-gray-700">Effortlessly showcase your property for rent with our streamlined listing
+            form. Maximize your rental
             opportunities today!</small>
 
     </div>
-    <mat-stepper [orientation]="(stepperOrientation | async)!">
-        <mat-step label="Basic Information">
-            <div [formGroupName]="'unitInformation'"
-                class="lg:mx-12 lg:my-6 w-full bg-white shadow-md rounded-xl border-gray-200 border py-4 px-4 space-y-4">
+    <mat-stepper [(selectedIndex)]="selectedIndex" [orientation]="(stepperOrientation | async)!">
+        <mat-step [formGroupName]="'unitInformation'" label="Basic Information">
+            <div class="lg:mx-12 lg:my-6  bg-white shadow-md rounded-xl border-gray-200 border py-4 px-4 space-y-4">
                 <div class="space-y-2">
                     <p class="text-gray-900 text-xs font-medium pb-1">Unit Information:</p>
                     <div class="grid grid-cols-1 lg:grid-cols-2 pb-2 gap-6">
                         <div>
                             <label for="unitName" class="block text-xs text-gray-700">Ad Title<span
                                     class="text-red-600">*</span></label>
-                            <input type="text" id="unitName" formControlName="title"
+                            <input type="text"
+                                [ngClass]="{'outline-red-600 ring-red-600 border-red-600':isControlInvalid('isBasicDetailsSubmitted','unitInformation','title')}"
+                                id="unitName" formControlName="title"
                                 class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                            <small class="text-red-600"
+                                *ngIf="isControlInvalid('isBasicDetailsSubmitted','unitInformation','title')">Please
+                                enter title of your advertisement</small>
                         </div>
                         <div>
                             <label for="unitName" class="block text-xs text-gray-700">Ad Description<span
                                     class="text-red-600">*</span></label>
                             <input type="text" id="unitName" formControlName="description"
+                                [ngClass]="{'outline-red-600 ring-red-600 border-red-600': isControlInvalid('isBasicDetailsSubmitted','unitInformation','description')}"
                                 class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                            <small class="text-red-600"
+                                *ngIf="isControlInvalid('isBasicDetailsSubmitted','unitInformation','description')">Please
+                                enter description of your advertisement</small>
+
                         </div>
                     </div>
                     <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 justify-between">
@@ -30,7 +40,9 @@
                             <label for="unitName" class="block text-xs text-gray-700">Unit Type
                                 (Apartment/Building)<span class="text-red-600">*</span></label>
 
-                            <select name="unit_type" id="unit_type" formControlName="unit_type"
+                            <select
+                                [ngClass]="{'outline-red-600 ring-red-600 border-red-600 ': isControlInvalid('isBasicDetailsSubmitted','unitInformation','unit_type')}"
+                                name="unit_type" id="unit_type" formControlName="unit_type"
                                 class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm">
                                 <option value="">Please select</option>
                                 <option value="1 BHK">1 BHK</option>
@@ -38,12 +50,22 @@
                                 <option value="3 BHK">3 BHK</option>
                                 <option value="4 BHK">Individual Building</option>
                             </select>
+                            <small class="text-red-600"
+                                *ngIf="isControlInvalid('isBasicDetailsSubmitted','unitInformation','unit_type')">Please
+                                select type of property</small>
+
                         </div>
                         <div class="flex-1">
                             <label for="unitName" class="block text-xs text-gray-700">Unit Name <span
                                     class="text-red-600">*</span></label>
-                            <input type="text" formControlName="unit_name" id="unitName"
+                            <input
+                                [ngClass]="{'outline-red-600 ring-red-600 border-red-600 ': isControlInvalid('isBasicDetailsSubmitted','unitInformation','unit_name')}"
+                                type="text" formControlName="unit_name" id="unitName"
                                 class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                            <small class="text-red-600"
+                                *ngIf="isControlInvalid('isBasicDetailsSubmitted','unitInformation','unit_name')">Please
+                                enter your unit name</small>
+
                         </div>
                         <div class="mt-1">
                             <label for="unitName" class="block text-xs text-gray-700">Is this a shared Property or
@@ -78,15 +100,27 @@
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <div>
                             <label for="unit_availability" class="block text-xs text-gray-700">Unit Available
-                                From</label>
-                            <input type="date" id="unit_availability" formControlName="unit_availability"
+                                From <span class="text-red-600">*</span></label>
+                            <input
+                                [ngClass]="{'outline-red-600 ring-red-600 border-red-600 ': isControlInvalid('isBasicDetailsSubmitted','unitInformation','unit_availability')}"
+                                type="date" id="unit_availability" formControlName="unit_availability"
                                 class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                            <small class="text-red-600"
+                                *ngIf="isControlInvalid('isBasicDetailsSubmitted','unitInformation','unit_availability')">Please
+                                enter availabe date of property</small>
 
                         </div>
                         <div class="col-span-2">
-                            <label for="streetAddress" class="block text-xs text-gray-700">Street Address</label>
-                            <input type="text" id="streetAddress" formControlName="unit_address"
-                                class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                            <label for="streetAddress" class="block text-xs text-gray-700">Street Address<span
+                                    class="text-red-600">*</span></label>
+                            <input
+                                [ngClass]="{'outline-red-600 ring-red-600 border-red-600 ': isControlInvalid('isBasicDetailsSubmitted','unitInformation','unit_address')}"
+                                type="text" id="streetAddress" formControlName="unit_address"
+                                class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" /> <small
+                                class="text-red-600"
+                                *ngIf="isControlInvalid('isBasicDetailsSubmitted','unitInformation','unit_address')">Please
+                                enter the address of property</small>
+
                         </div>
                     </div>
 
@@ -122,8 +156,9 @@
                         </label>
                     </div>
                 </div>
-                <div class="flex justify-end" (click)="saveData('basic')">
-                    <button class="bg-primary text-white font-medium text-sm px-4 -mt-4 py-2 rounded-md ">Next</button>
+                <div class="flex justify-end">
+                    <button (click)="saveData('basic')"
+                        class="bg-primary text-white font-medium text-sm px-4 -mt-4 py-2 rounded-md ">Next</button>
                 </div>
             </div>
 
@@ -135,14 +170,18 @@
                     <p class="text-gray-900 text-xs font-medium pb-2">
                         Price & Duration:
                     </p>
-
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <div>
                             <label for="unitName" class="block text-xs text-gray-700">
-                                Expected Rent Per Month
+                                Expected Rent Per Month <span class="text-red-600">*</span>
                             </label>
-                            <input formControlName="expected_rent" type="text" id="unitName"
+                            <input
+                                [ngClass]="{'outline-red-600 ring-red-600 border-red-600 ': isControlInvalid('isRentDetailsSubmitted','rentInformation','expected_rent')}"
+                                formControlName="expected_rent" type="text" id="unitName"
                                 class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                            <small class="text-red-600"
+                                *ngIf="isControlInvalid('isRentDetailsSubmitted','rentInformation','expected_rent')">Please
+                                enter the expected rent</small>
                         </div>
                         <div class="flex items-center mt-4">
                             <input formControlName="rent_negotiable" checked id="checked-checkbox" type="checkbox"
@@ -165,22 +204,34 @@
                         </div>
                         <div>
                             <label for="unitName" class="block text-xs text-gray-700">
-                                Late Charges
+                                Late Charges <span class="text-red-600">*</span>
                             </label>
-                            <input formControlName="late_charges" type="text" id="unitName"
+                            <input
+                                [ngClass]="{'outline-red-600 ring-red-600 border-red-600 ': isControlInvalid('isRentDetailsSubmitted','rentInformation','late_charges')}"
+                                formControlName="late_charges" type="text" id="unitName"
                                 class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                            <small class="text-red-600"
+                                *ngIf="isControlInvalid('isRentDetailsSubmitted','rentInformation','late_charges')">Please
+                                enter the expected rent</small>
                         </div>
                         <div>
-                            <label for="unitName" class="block text-xs text-gray-700">Minimum Down Payment
+                            <label for="unitName" class="block text-xs text-gray-700">Minimum Down Payment <span
+                                    class="text-red-600">*</span>
                             </label>
-                            <input formControlName="minimum_down_payment" type="text" id="unitName"
+                            <input
+                                [ngClass]="{'outline-red-600 ring-red-600 border-red-600 ': isControlInvalid('isRentDetailsSubmitted','rentInformation','minimum_down_payment')}"
+                                formControlName="minimum_down_payment" type="text" id="unitName"
                                 class="mt-1 w-full rounded-md border-gray-300 shadow-sm sm:text-sm" />
+                            <small class="text-red-600"
+                                *ngIf="isControlInvalid('isRentDetailsSubmitted','rentInformation','minimum_down_payment')">Please
+                                enter the expected rent</small>
                         </div>
                     </div>
                     <div class="flex gap-6 mt-2 justify-end">
-                        <button
+                        <button matStepperPrevious
                             class="bg-gray-600 text-white font-medium text-sm px-4 py-2 rounded-md ">Previous</button>
-                        <button class="bg-primary text-white font-medium text-sm px-4 py-2 rounded-md ">Next</button>
+                        <button (click)="saveData('rent')"
+                            class="bg-primary text-white font-medium text-sm px-4 py-2 rounded-md ">Next</button>
                     </div>
                 </div>
             </div>
@@ -189,12 +240,10 @@
             <div formGroupName="facilities"
                 class="lg:mx-12 my-2 bg-white shadow-md rounded-xl border-gray-200/75 border py-4 px-4 space-y-4">
                 <div class="space-y-2">
-
-
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <div>
                             <label for="unitName" class="block text-xs text-gray-700">
-                                Is this room/apartment furnished ?
+                                Is this room/apartment furnished ? <span class="text-red-600">*</span>
                             </label>
 
                             <div class="flex gap-6 py-2">
@@ -211,6 +260,9 @@
                                     <label for="Not Furnished" class="ms-2 text-sm  text-gray-900 ">No</label>
                                 </div>
                             </div>
+                            <small class="text-red-600"
+                                *ngIf="isControlInvalid('isFacilitiesSubmitted','facilities','furnished')">Please select
+                                whether property is furnished or not</small>
 
                         </div>
 
@@ -227,15 +279,17 @@
                         </div>
                     </div>
                     <div class="flex gap-6 mt-2 justify-end">
-                        <button
+                        <button matStepperPrevious
                             class="bg-gray-600 text-white font-medium text-sm px-4 py-2 rounded-md ">Previous</button>
-                        <button class="bg-primary text-white font-medium text-sm px-4 py-2 rounded-md ">Next</button>
+                        <button (click)="saveData('facilities')"
+                            class="bg-primary text-white font-medium text-sm px-4 py-2 rounded-md ">Next</button>
                     </div>
                 </div>
             </div>
         </mat-step>
         <mat-step label="Preview & Submit">
-
+            <app-preview (editEvent)="selectedIndex=2" (submitEvent)="saveData('final')"
+                [current_data]="rent_form.value"></app-preview>
         </mat-step>
     </mat-stepper>
 </div>

@@ -6,7 +6,7 @@
         </div>
         <div class="px-6 py-2 space-y-1 bg-white">
             <div class="flex justify-between items-center">
-                <p class="text-xl font-bold text-blue-600">${{apartmentData?.rentInformation?.expected_rent.amount}}.00</p>
+                <p class="text-xl font-bold text-blue-600">${{apartmentData?.rentInformation?.expected_rent}}</p>
                 <div class="flex gap-2 items-center">
                     <span class="p-1.5 rounded-full shadow-sm border border-gray-300 cursor-pointer ">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -41,7 +41,7 @@
                 </div>
                 <div class="border-t-2  gap-2 w-full text-blue-600 flex justify-between py-2 mt-4 border-gray-200">
 
-                    <span class="text-xs font-medium">{{apartmentData?.facilities?.amenties}}</span>
+                    <span class="text-xs font-medium">{{formatAmeneties( apartmentData?.facilities?.amenties)}}</span>
                 </div>
 
             </div>

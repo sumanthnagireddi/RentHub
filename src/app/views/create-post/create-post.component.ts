@@ -1,59 +1,37 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import {
-  MatStepperModule,
-  StepperOrientation,
-} from '@angular/material/stepper';
-import { map, Observable, reduce } from 'rxjs';
+import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, } from '@angular/forms';
+import { MatStepper, MatStepperModule, StepperOrientation, } from '@angular/material/stepper';
+import { map, Observable } from 'rxjs';
 import { RentalService } from '../../services/rental.service';
 import { v4 as uuidv4 } from 'uuid';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { StepperSelectionEvent } from '@angular/cdk/stepper';
+import { PreviewComponent } from "./preview/preview.component";
+import { AMENITIES } from '../../shared/const';
 
 @Component({
   selector: 'app-create-post',
   standalone: true,
-  imports: [MatStepperModule, ReactiveFormsModule, CommonModule],
+  imports: [MatStepperModule, ReactiveFormsModule, CommonModule, PreviewComponent],
   templateUrl: './create-post.component.html',
   styleUrl: './create-post.component.css',
 })
 export class CreatePostComponent {
   rent_form!: FormGroup;
-  amenities_included: string[] = [
-    'Gym/Fitness Center',
-    'Swimming Pool',
-    'Car Parking',
-    'Visitors Parking',
-    'Power Backup',
-    'Garbage Disposal',
-    'Private Lawn',
-    'Water Heater',
-    'Plant Security System',
-    'Laundry Service',
-    'Elevator',
-    'Club House',
-  ];
+  amenities_included: string[] = AMENITIES
+  selectedIndex: number = 3
   stepperOrientation!: Observable<StepperOrientation>;
-
+  isBasicDetailsSubmitted: boolean = false;
+  isRentDetailsSubmitted: boolean = false;
+  isFacilitiesSubmitted: boolean = false
   amenties_selected: string[] = [];
-  constructor(
-    private _formBuilder: FormBuilder,
-    private rentalService: RentalService,
-    breakpointObserver: BreakpointObserver
-  ) {
+  constructor(private _formBuilder: FormBuilder, private rentalService: RentalService, breakpointObserver: BreakpointObserver) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
   }
+  @ViewChild('stepper') stepper!: MatStepper;
 
   ngOnInit(): void {
     this.rent_form = this._formBuilder.group({
@@ -76,7 +54,7 @@ export class CreatePostComponent {
         minimum_down_payment: [''],
       }),
       facilities: this._formBuilder.group({
-        furnished: [''],
+        furnished: ['', Validators.required],
         amenties: [''],
       }),
     });
@@ -87,13 +65,7 @@ export class CreatePostComponent {
       files.forEach((file: any) => {
         const reader = new FileReader();
         reader.onload = (event) => {
-          this.rent_form
-            .get('unitInformation')
-            ?.get('unit_images')
-            ?.setValue([
-              ...this.rent_form?.value?.unitInformation?.unit_images,
-              event.target?.result,
-            ]);
+          this.rent_form.get('unitInformation')?.get('unit_images')?.setValue([...this.rent_form?.value?.unitInformation?.unit_images, event.target?.result,]);
         };
         reader.readAsDataURL(file);
       });
@@ -105,11 +77,26 @@ export class CreatePostComponent {
   saveData(tab: string) {
     if (tab == 'basic') {
       if (this.rent_form.get('unitInformation')?.valid) {
-        console.log('valid');
+        this.selectedIndex = 1
       } else {
-        console.log('not valid');
+        this.isBasicDetailsSubmitted = true;
+        this.selectedIndex = 0
       }
-      console.log(this.rent_form.value);
+    } else if (tab == 'rent') {
+      if (this.rent_form.get('rentInformation')?.valid) {
+        this.selectedIndex = 2;
+      } else {
+        this.isRentDetailsSubmitted = true;
+        this.selectedIndex = 1
+      }
+    } else if (tab == 'facilities') {
+      if (this.rent_form.get('facilities')?.valid) {
+        this.selectedIndex = 3;
+      } else {
+        this.isFacilitiesSubmitted = true;
+        this.selectedIndex = 2
+      }
+    } else {
       this.rentalService.createNewPost({
         id: uuidv4(),
         ...this.rent_form.value,
@@ -124,9 +111,18 @@ export class CreatePostComponent {
     } else {
       this.amenties_selected.push(value);
     }
-    this.rent_form
-      .get('facilities')
-      ?.get('amenties')
-      ?.setValue(this.amenties_selected);
+    console.log(this.amenties_selected);
+    
+    this.rent_form.get('facilities')?.get('amenties')?.setValue(this.amenties_selected);
   }
+  isControlInvalid(validator: string, formgroupName: string, controlName: string) {
+    const control: any = this.rent_form.get(formgroupName)?.get(controlName);
+    return (
+      (validator == 'isBasicDetailsSubmitted' ? this.isBasicDetailsSubmitted : validator == 'isRentDetailsSubmitted' ? this.isRentDetailsSubmitted : this.isFacilitiesSubmitted &&
+        !this.rent_form.value[formgroupName][controlName]) ||
+      (control.touched && !this.rent_form.value[formgroupName][controlName])
+    );
+  }
+  
+
 }
