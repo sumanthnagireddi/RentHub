@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BreadcrumbComponent } from './breadcrumb.component';
+import { ActivatedRoute } from '@angular/router';
 
 describe('BreadcrumbComponent', () => {
   let component: BreadcrumbComponent;
@@ -8,7 +9,13 @@ describe('BreadcrumbComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BreadcrumbComponent]
+      imports: [BreadcrumbComponent],
+      providers:[
+        {
+          provide:ActivatedRoute,
+          useValue:{}
+        }
+      ]
     })
     .compileComponents();
 

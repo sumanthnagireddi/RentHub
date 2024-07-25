@@ -27,7 +27,7 @@ export class UserService {
     }
   }
 
-  logoutUser(): void {
+  logoutUser() {
     localStorage.clear();
   }
 }

@@ -98,7 +98,7 @@ export class CreatePostComponent {
         this.selectedIndex = 2
       }
     } else {
-      if (!this.rent_form.valid) {
+      if (this.rent_form.valid) {
         this.rentalService.addToPostedHome({
           id: uuidv4(),
           ...this.rent_form.value,

@@ -7,8 +7,9 @@ import { of } from 'rxjs';
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
-  let mockService : RentalService
+  let mockService : any
   beforeEach(async () => {
+    mockService=jasmine.createSpyObj('RentalService',['getHomes']);
     await TestBed.configureTestingModule({
       imports: [HomeComponent],
       providers: [
@@ -22,6 +23,7 @@ describe('HomeComponent', () => {
     fixture = TestBed.createComponent(HomeComponent);
     mockService = TestBed.inject(RentalService)
     component = fixture.componentInstance;
+    mockService.getHomes.and.returnValue([])
     fixture.detectChanges();
   });
 
@@ -69,5 +71,11 @@ describe('HomeComponent', () => {
         ]
       }
     ]
+    mockService.getHomes.and.returnValue(response)
+    component.ngOnInit()
+    expect(component.listings.length).toBe(10);
+    expect(component.filtered_listings.length).toBe(10);
+    expect(component.amenities.has('Pool')).toBeTrue();
+    expect(component.amenities.has('Gym')).toBeTrue();
   })
 });
