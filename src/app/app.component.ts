@@ -18,5 +18,6 @@ export class AppComponent {
     if (localStorage.getItem('homes')) {
       localStorage.removeItem('homes');
     }
+    localStorage.setItem('test','1234')
   }
 }

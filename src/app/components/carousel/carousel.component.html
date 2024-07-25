@@ -13,7 +13,7 @@
               <div class=" p-4 relative bg-blue-100 flex-1 h-[180px] sm:h-auto rounded-xl ">
                 <div class="px-2 space-y-1">
                   <div class="flex justify-between items-center">
-                    <p class="text-xl font-bold text-blue-600">${{item?.rentInformation?.expected_rent}}</p>
+                    <p class="text-xl font-bold text-blue-600">₹ {{item?.rentInformation?.expected_rent}} INR</p>
                     <div class="flex gap-2 items-center">
 
                       <span (click)="navigate(item.id)"
@@ -41,7 +41,7 @@
                     </div>
                     <div class="border-t-2  gap-2 w-full text-blue-600 flex justify-between py-2  border-gray-200">
 
-                      <span class="text-xs font-medium">{{item?.facilities?.amenties}}</span>
+                      <span class="text-xs font-medium">{{formatAmeneties( item?.facilities?.amenities)}}</span>
                     </div>
 
                   </div>

@@ -26,7 +26,7 @@ export class CreatePostComponent {
   isRentDetailsSubmitted: boolean = false;
   isFacilitiesSubmitted: boolean = false
   isFormSubmitted: boolean = false
-  amenties_selected: string[] = [];
+  amenities_selected: string[] = [];
   constructor(private _formBuilder: FormBuilder, private rentalService: RentalService, breakpointObserver: BreakpointObserver) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
@@ -56,7 +56,7 @@ export class CreatePostComponent {
       }),
       facilities: this._formBuilder.group({
         furnished: ['', Validators.required],
-        amenties: [''],
+        amenities: [''],
       }),
     });
   }
@@ -98,25 +98,34 @@ export class CreatePostComponent {
         this.selectedIndex = 2
       }
     } else {
-      this.rentalService.addToPostedHome({
-        id: uuidv4(),
-        ...this.rent_form.value,
-        author: 'me',
-        ratings:[]
-      });
-      this.isFormSubmitted = true
+      if (this.rent_form.valid) {
+        this.rentalService.addToPostedHome({
+          id: uuidv4(),
+          ...this.rent_form.value,
+          author: 'me',
+          ratings: []
+        });
+        this.isFormSubmitted = true
+
+      } else {
+        alert('Please fill all the fields')
+        this.isBasicDetailsSubmitted = true;
+        this.isFacilitiesSubmitted = true;
+        this.isRentDetailsSubmitted = true;
+      }
+
     }
   }
   handleAmenities(value: string) {
-    if (this.amenties_selected && this.amenties_selected.includes(value)) {
-      let filtered_items = this.amenties_selected.filter((am) => am != value);
-      this.amenties_selected = filtered_items;
+    if (this.amenities_selected && this.amenities_selected.includes(value)) {
+      let filtered_items = this.amenities_selected.filter((am) => am != value);
+      this.amenities_selected = filtered_items;
     } else {
-      this.amenties_selected.push(value);
+      this.amenities_selected.push(value);
     }
-    console.log(this.amenties_selected);
+    console.log(this.amenities_selected);
 
-    this.rent_form.get('facilities')?.get('amenties')?.setValue(this.amenties_selected);
+    this.rent_form.get('facilities')?.get('amenities')?.setValue(this.amenities_selected);
   }
   isControlInvalid(validator: string, formgroupName: string, controlName: string) {
     const control: any = this.rent_form.get(formgroupName)?.get(controlName);

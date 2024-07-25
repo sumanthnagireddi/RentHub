@@ -6,7 +6,7 @@
             opportunities today!</small>
 
     </div>
-    <mat-stepper [(selectedIndex)]="selectedIndex" [orientation]="(stepperOrientation | async)!">
+    <mat-stepper linear [(selectedIndex)]="selectedIndex" [orientation]="(stepperOrientation | async)!">
         <mat-step [formGroupName]="'unitInformation'" label="Basic Information">
             <div class="lg:mx-12 lg:my-6  bg-white shadow-md rounded-xl border-gray-200 border py-4 px-4 space-y-4">
                 <div class="space-y-2">
@@ -183,12 +183,15 @@
                                 *ngIf="isControlInvalid('isRentDetailsSubmitted','rentInformation','expected_rent')">Please
                                 enter the expected rent</small>
                         </div>
-                        <div class="flex items-center mt-4">
-                            <input formControlName="rent_negotiable" checked id="checked-checkbox" type="checkbox"
-                                value=""
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
-                            <label for="checked-checkbox" class="ms-2 text-sm text-gray-600">Rent Negotiable</label>
+                        <div class="flex gap-2 items-center">
+                            <div class="flex items-center mt-4">
+                                <input formControlName="rent_negotiable" checked id="checked-checkbox" type="checkbox"
+                                    value=""
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                                <label for="checked-checkbox" class="ms-2 text-sm text-gray-600">Rent Negotiable</label>
+                            </div>
                         </div>
+
                         <div>
                             <label for="unitName" class="block text-xs text-gray-700">
                                 Stay Type

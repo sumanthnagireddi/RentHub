@@ -67,4 +67,15 @@ export class CarouselComponent1 {
   navigate(id: string) {
     this.router.navigate(['details', id]);
   }
+  formatAmeneties(data: string[]): string {
+    if (!data || data.length === 0) {
+      return ''
+    } else if (data.length <= 2) {
+      return data.join(',')
+    } else {
+      const toDisplay = data.slice(0, 2).join(',')
+      const remainingCount = data.length - 2;
+      return `${toDisplay} +${remainingCount} more`
+    }
+  }
 }

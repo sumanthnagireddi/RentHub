@@ -6,7 +6,7 @@
         </div>
         <div class="px-6 py-2 space-y-1 bg-white">
             <div class="flex justify-between items-center">
-                <p class="text-xl font-bold text-blue-600">${{apartmentData?.rentInformation?.expected_rent}}</p>
+                <p class="text-xl font-bold text-blue-600">₹ {{apartmentData?.rentInformation?.expected_rent}} INR</p>
                 <div class="flex gap-2 items-center">
                     <span (click)="addTofavorites(apartmentData)" class="p-1.5 rounded-full shadow-sm border border-gray-300 cursor-pointer ">
                         <span *ngIf="isFavoriteItem">
@@ -50,7 +50,7 @@
                 </div>
                 <div class="border-t-2  gap-2 w-full text-blue-600 flex justify-between py-2 mt-4 border-gray-200">
 
-                    <span class="text-xs font-medium">{{formatAmeneties( apartmentData?.facilities?.amenties)}}</span>
+                    <span class="text-xs font-medium">{{formatAmeneties( apartmentData?.facilities?.amenities)}}</span>
                 </div>
             </div>
         </div>

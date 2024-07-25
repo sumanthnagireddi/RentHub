@@ -1,9 +1,61 @@
-<app-carousel/>
+<app-carousel />
 <div>
-    <h2 class="font-semibold pb-6 text-lg">All Listings</h2>
-    <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 ">
-        <div *ngFor="let item of listings" >
-            <app-apartment-card (viewDetailsEventEmitter)="navigateToViewDetails($event)" [apartmentData]="item"></app-apartment-card>
+    <div class="lg:flex items-center my-8 justify-between">
+        <h2 class="font-semibold  text-lg">All Listings</h2>
+        <div class="lg:flex items-center gap-2 space-y-2 mt-2 lg:mt-0">
+            <div class="mt-px"> <input (input)="onFilter()" name="text" [(ngModel)]="filterKey" id="text" type="text"
+                    placeholder="search for homes.."
+                    class="block w-full rounded-md border-0 py-1.5 lg:mt-6 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+            <!-- <div class="-mt-5">
+                <label for="unitName" class="block text-xs text-gray-700">
+                    Location
+                </label>
+                <select name="unit_type" id="unit_type"
+                    class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm">
+                    <option value="">Please select</option>
+                    <option *ngFor="let val of amenities" [value]="val">{{val}}</option>
+
+                </select>
+            </div> -->
+            <div class="lg:-mt-5">
+                <label for="unitName" class="block text-xs text-gray-700">
+                    Price Range
+                </label>
+                <select (change)="handleSelectionoFPriceRange()" [(ngModel)]="selectedPricerange" name="unit_type"
+                    id="unit_type" class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm">
+                    <option value="">Please select</option>
+                    <option value="0 to 9999">0-9999 INR</option>
+                    <option value="10000 to 24999">10000-24999 INR</option>
+                    <option value="25000 to 49999">25000-49999 INR</option>
+                    <option value="50000+">50000+ INR</option>
+                </select>
+            </div>
+            <div class="-mt-5 relative">
+                <label for="unitName" class="block text-xs py-1 text-gray-700">
+                    Amenities
+                </label>
+                <div class="w-full lg:w-[180px]">
+                    <mat-select (selectionChange)="handleSelectionChange()" [(ngModel)]="selectedAmeneities" multiple>
+                        @for (a of amenities; track a) {
+                        <mat-option [value]="a">{{a}}</mat-option>
+                        }
+                    </mat-select>
+                </div>
+            </div>
         </div>
+    </div>
+    <div>
+        <div *ngIf="listings.length==0">
+            <p>There are no properties with selected criteria</p>
+        </div>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 " *ngIf="listings.length>0">
+            <div *ngFor="let item of filtered_listings">
+                <app-apartment-card (viewDetailsEventEmitter)="navigateToViewDetails($event)"
+                    [apartmentData]="item"></app-apartment-card>
+            </div>
+        </div>
+
+
     </div>
 </div>

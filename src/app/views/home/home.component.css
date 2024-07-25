@@ -1,0 +1,12 @@
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled){
+  background: none !important;
+}
+::ng-deep div.mat-mdc-select-panel{
+    background-color: white !important;
+}
+
+::ng-deep .mat-mdc-select {
+  border: 1px solid #d1d5db !important;
+  border-radius: 10px !important;
+  padding: 6px !important;
+}

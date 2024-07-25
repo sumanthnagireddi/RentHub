@@ -1,290 +1,291 @@
 export const HOMES_DATA: any[] = [
-    {
-      "id": "ef4803d0-3f93-4ba4-b55a-5b74669d1e69",
-      "unitInformation": {
-        "title": "Luxury Apartment in Downtown",
-        "description": "Spacious apartment with modern amenties. Enjoy breathtaking views of the city skyline from this luxurious residence.",
-        "unit_type": "Apartment",
-        "unit_name": "Skyview Residences",
-        "shared_property": "Private",
-        "unit_area": "1200 sqft",
-        "unit_number": "A-101",
-        "unit_address": "123 Main Street",
-        "unit_images": ["assets/apartmen4.jpg", "assets/interior1.avif", "assets/interior2.avif", "assets/interior3.avif"]
-      },
-      "rentInformation": {
-        "expected_rent": "2500 USD",
-        "rent_negotiable": true,
-        "stay_type": "Long-term",
-        "minimum_rent_time": "12 months",
-        "late_charges": 50,
-        "minimum_down_payment": 500
-      },
-      "facilities": {
-        "furnished": "Fully furnished",
-        "amenties": ["Pool, Gym, Parking"]
-      },
-      "ratings": [
-        {
-          userName: "John Doe",
-          review: "This is very good and owner is friendly.",
-          reviewedOn: "Mon Jul 22 2024 09:29:08 GMT+0530"
-        },
-        {
-          userName: "Jane Smith",
-          review: "Absolutely loved living here! The amenties are top-notch.",
-          reviewedOn: "Tue Jul 23 2024 14:15:30 GMT+0530"
-        }
-      ]
+  {
+    "id": "ef4803d0-3f93-4ba4-b55a-5b74669d1e69",
+    "unitInformation": {
+      "title": "Luxury Apartment in Downtown",
+      "description": "Spacious apartment with modern amenities. Enjoy breathtaking views of the city skyline from this luxurious residence.",
+      "unit_type": "Apartment",
+      "unit_name": "Skyview Residences",
+      "shared_property": "Private",
+      "unit_area": "1200 sqft",
+      "unit_number": "A-101",
+      "unit_address": "123 Main Street",
+      "unit_images": ["assets/apartmen4.jpg", "assets/interior1.avif", "assets/interior2.avif", "assets/interior3.avif"]
     },
-    {
-      "id": "24f296a3-2fa7-403f-903a-87c634d9cc4a",
-      "unitInformation": {
-        "title": "Cozy Studio Near Park",
-        "description": "Charming studio apartment with picturesque views of the nearby park. Perfect for nature lovers.",
-        "unit_type": "Studio",
-        "unit_name": "Greenview Studios",
-        "shared_property": "Shared",
-        "unit_area": "600 sqft",
-        "unit_number": "B-201",
-        "unit_address": "456 Elm Street",
-        "unit_images": ["assets/apartmen9.jpg", "assets/interior1.avif", "assets/interior2.avif", "assets/interior3.avif"]
-      },
-      "rentInformation": {
-        "expected_rent": "1500 USD",
-        "rent_negotiable": false,
-        "stay_type": "Short-term",
-        "minimum_rent_time": "6 months",
-        "late_charges": 30,
-        "minimum_down_payment": 300
-      },
-      "facilities": {
-        "furnished": "Partially furnished",
-        "amenties":[ "Laundry, Elevator"]
-      }, "ratings": []
+    "rentInformation": {
+      "expected_rent": "45000",
+      "rent_negotiable": true,
+      "stay_type": "Long-term",
+      "minimum_rent_time": "12 months",
+      "late_charges": 5000,
+      "minimum_down_payment": 50000
     },
-    {
-      "id": "fe066bb2-13fc-4498-9d14-ffc7b0ef856e",
-      "unitInformation": {
-        "title": "Modern Condo with City Views",
-        "description": "Recently renovated condo offering stunning panoramic views of the city. Experience modern living at its finest.",
-        "unit_type": "Condo",
-        "unit_name": "Cityscape Condos",
-        "shared_property": "Private",
-        "unit_area": "1000 sqft",
-        "unit_number": "C-301",
-        "unit_address": "789 Oak Avenue",
-        "unit_images": ["assets/apartment2.jpg", "assets/interior1.avif", "assets/interior2.avif", "assets/interior3.avif"]
+    "facilities": {
+      "furnished": "Fully furnished",
+      "amenities": ["Pool", "Gym", "Parking", "Concierge Service", "Spa", "Roof Deck"]
+    },
+    "ratings": [
+      {
+        userName: "John Doe",
+        review: "This is very good and owner is friendly.",
+        reviewedOn: "Mon Jul 22 2024 09:29:08 GMT+0530"
       },
-      "rentInformation": {
-        "expected_rent":"1800 USD",
-        "rent_negotiable": true,
-        "stay_type": "Long-term",
-        "minimum_rent_time": "12 months",
-        "late_charges": 40,
-        "minimum_down_payment": 400
-      },
-      "facilities": {
-        "furnished": "Fully furnished",
-        "amenties": ["Swimming Pool, Security"]
+      {
+        userName: "Jane Smith",
+        review: "Absolutely loved living here! The amenities are top-notch.",
+        reviewedOn: "Tue Jul 23 2024 14:15:30 GMT+0530"
       }
+    ]
+  },
+  {
+    "id": "24f296a3-2fa7-403f-903a-87c634d9cc4a",
+    "unitInformation": {
+      "title": "Cozy Studio Near Park",
+      "description": "Charming studio apartment with picturesque views of the nearby park. Perfect for nature lovers.",
+      "unit_type": "Studio",
+      "unit_name": "Greenview Studios",
+      "shared_property": "Shared",
+      "unit_area": "600 sqft",
+      "unit_number": "B-201",
+      "unit_address": "456 Elm Street",
+      "unit_images": ["assets/apartmen9.jpg", "assets/interior1.avif", "assets/interior2.avif", "assets/interior3.avif"]
     },
-    {
-      "id": "1e18ecbd-b406-47ca-8d38-fb78bfe55747",
-      "unitInformation": {
-        "title": "Family Home Near Schools",
-        "description": "Spacious family home ideally located near schools and parks. Perfect for families looking for comfort and convenience.",
-        "unit_type": "House",
-        "unit_name": "Family Haven",
-        "shared_property": "Private",
-        "unit_area": "2000 sqft",
-        "unit_number": "D-401",
-        "unit_address": "101 Pine Street",
-        "unit_images": ["assets/apartment4.jpg","assets/apartment4a.jpg","assets/apartment4b.jpg","assets/apartment4c.jpg"]
-      },
-      "rentInformation": {
-        "expected_rent": "3000 USD",
-        "rent_negotiable": false,
-        "stay_type": "Long-term",
-        "minimum_rent_time": "24 months",
-        "late_charges": 60,
-        "minimum_down_payment": 600
-      },
-      "facilities": {
-        "furnished": "Unfurnished",
-        "amenties": ["Backyard, Garage"]
-      }, "ratings": []
+    "rentInformation": {
+      "expected_rent": "30000",
+      "rent_negotiable": false,
+      "stay_type": "Short-term",
+      "minimum_rent_time": "6 months",
+      "late_charges": 3000,
+      "minimum_down_payment": 30000
     },
-    {
-      "id": "e8f4a87d-55c2-4d78-8493-b65cc8c90166",
-      "unitInformation": {
-        "title": "Charming Duplex in Historic Area",
-        "description": "Unique duplex featuring vintage charm and modern comforts. Ideal for those seeking a distinctive living experience.",
-        "unit_type": "Duplex",
-        "unit_name": "Heritage Duplex",
-        "shared_property": "Shared",
-        "unit_area": "1800 sqft",
-        "unit_number": "E-501",
-        "unit_address": "222 Maple Avenue",
-        "unit_images": ["assets/apartment5.webp"]
-      },
-      "rentInformation": {
-        "expected_rent": "2200 USD",
-        "rent_negotiable": true,
-        "stay_type": "Long-term",
-        "minimum_rent_time": "18 months",
-        "late_charges": 50,
-        "minimum_down_payment": 550
-      },
-      "facilities": {
-        "furnished": "Partially furnished",
-        "amenties": ["Fireplace, Garden"]
-      }, "ratings": []
+    "facilities": {
+      "furnished": "Partially furnished",
+      "amenities": ["Laundry", "Elevator", "Fitness Center", "Community Lounge"]
+    }, "ratings": []
+  },
+  {
+    "id": "fe066bb2-13fc-4498-9d14-ffc7b0ef856e",
+    "unitInformation": {
+      "title": "Modern Condo with City Views",
+      "description": "Recently renovated condo offering stunning panoramic views of the city. Experience modern living at its finest.",
+      "unit_type": "Condo",
+      "unit_name": "Cityscape Condos",
+      "shared_property": "Private",
+      "unit_area": "1000 sqft",
+      "unit_number": "C-301",
+      "unit_address": "789 Oak Avenue",
+      "unit_images": ["assets/apartment2.jpg", "assets/interior1.avif", "assets/interior2.avif", "assets/interior3.avif"]
     },
-    {
-      "id": "c255bddf-764e-4d22-b211-9ebe2c296d3f",
-      "unitInformation": {
-        "title": "Urban Loft with Industrial Style",
-        "description": "Trendy loft located in the heart of the city. Perfect for urban dwellers seeking a stylish and convenient living space.",
-        "unit_type": "Loft",
-        "unit_name": "Metro Lofts",
-        "shared_property": "Private",
-        "unit_area": "800 sqft",
-        "unit_number": "F-601",
-        "unit_address": "333 Broadway",
-        "unit_images": ["assets/apartment6.jpg"]
-      },
-      "rentInformation": {
-        "expected_rent":"2000 USD",
-        "rent_negotiable": false,
-        "stay_type": "Short-term",
-        "minimum_rent_time": "9 months",
-        "late_charges": 35,
-        "minimum_down_payment": 400
-      },
-      "facilities": {
-        "furnished": "Fully furnished",
-        "amenties": ["Rooftop Terrace, Gym"]
-      }, "ratings": []
+    "rentInformation": {
+      "expected_rent": "28000 ",
+      "rent_negotiable": true,
+      "stay_type": "Long-term",
+      "minimum_rent_time": "12 months",
+      "late_charges": 4000,
+      "minimum_down_payment": 40000
     },
-    {
-      "id": "90c2c7ab-f75d-4b3f-be3b-dc7494a6c6a7",
-      "unitInformation": {
-        "title": "Lakefront Cottage Retreat",
-        "description": "Quaint cottage offering serene lake views and a peaceful retreat atmosphere. Perfect for relaxation and enjoying nature.",
-        "unit_type": "Cottage",
-        "unit_name": "Lakeview Cottage",
-        "shared_property": "Private",
-        "unit_area": "1500 sqft",
-        "unit_number": "G-701",
-        "unit_address": "444 Lake Drive",
-        "unit_images": ["assets/apartment7.jpg"]
-      },
-      "rentInformation": {
-        "expected_rent": "1700 USD",
-        "rent_negotiable": true,
-        "stay_type": "Short-term",
-        "minimum_rent_time": "3 months",
-        "late_charges": 25,
-        "minimum_down_payment": 300
-      },
-      "facilities": {
-        "furnished": "Partially furnished",
-        "amenties": ["Dock, BBQ Area"]
-      }, "ratings": []
-    },
-    {
-      "id": "64bb82a7-5856-4047-934e-45426b541e0a",
-      "unitInformation": {
-        "title": "Student Apartment Near University",
-        "description": "Affordable apartment located near the university campus. Ideal for students looking for convenience and affordability.",
-        "unit_type": "Apartment",
-        "unit_name": "Campus View Apartments",
-        "shared_property": "Shared",
-        "unit_area": "700 sqft",
-        "unit_number": "H-801",
-        "unit_address": "555 University Avenue",
-        "unit_images": ["assets/apartment8.jpg"]
-      },
-      "rentInformation": {
-        "expected_rent": "1200 USD",
-        "rent_negotiable": false,
-        "stay_type": "Long-term",
-        "minimum_rent_time": "12 months",
-        "late_charges": 20,
-        "minimum_down_payment": 200
-      },
-      "facilities": {
-        "furnished": "Fully furnished",
-        "amenties": ["Study Room, Laundry"]
-      }, "ratings": []
-    },
-    {
-      "id": "4ae2c728-3060-4f81-9520-a3252c087231",
-      "unitInformation": {
-        "title": " Penthouse with Panoramic Views",
-        "description": "Luxurious penthouse offering breathtaking panoramic views of the city skyline. Experience ultimate luxury and comfort.",
-        "unit_type": "Penthouse",
-        "unit_name": "Skyline Penthouse",
-        "shared_property": "Private",
-        "unit_area": "2500 sqft",
-        "unit_number": "I-901",
-        "unit_address": "777 High Street",
-        "unit_images": ["assets/apartmen9.jpg","assets/apartment9a.jpg","assets/apartment9b.jpg","assets/apartment9c.jpg"]
-      },
-      "rentInformation": {
-        "expected_rent": "5000 USD",
-        "rent_negotiable": true,
-        "stay_type": "Long-term",
-        "minimum_rent_time": "24 months",
-        "late_charges": 100,
-        "minimum_down_payment": 1000
-      },
-      "facilities": {
-        "furnished": "Fully furnished",
-        "amenties": ["Private Elevator, Wine Cellar"]
-      }, "ratings": []
-    },
-    {
-      "id": "34d42647-78d3-4bc0-b8e4-cc1b4b3670bc",
-      "unitInformation": {
-        "title": "Rural Farmhouse Retreat",
-        "description": "Peaceful farmhouse nestled in the countryside, offering a tranquil escape from city life. Perfect for nature enthusiasts.",
-        "unit_type": "Farmhouse",
-        "unit_name": "Country Living Farmhouse",
-        "shared_property": "Private",
-        "unit_area": "1800 sqft",
-        "unit_number": "J-1001",
-        "unit_address": "888 Farm Road",
-        "unit_images": ["assets/apartment10.jpg"      ,"assets/apartmenta.jpg","assets/apartment10b.jpg","assets/apartment10c.jpg"]
-      },
-      "rentInformation": {
-        "expected_rent": "2800 USD",
-        "rent_negotiable": false,
-        "stay_type": "Long-term",
-        "minimum_rent_time": "18 months",
-        "late_charges": 55,
-        "minimum_down_payment": 600
-      },
-      "facilities": {
-        "furnished": "Partially furnished",
-        "amenties": ["Garden, Barn"]
-      }, "ratings": []
+    "facilities": {
+      "furnished": "Fully furnished",
+      "amenities": ["Swimming Pool", "Security", "Sauna", "Club Room"]
     }
-  ];
-  
-  export const AMENITIES:string[]= [
-    'Gym/Fitness Center',
-    'Swimming Pool',
-    'Car Parking',
-    'Visitors Parking',
-    'Power Backup',
-    'Garbage Disposal',
-    'Private Lawn',
-    'Water Heater',
-    'Plant Security System',
-    'Laundry Service',
-    'Elevator',
-    'Club House',
-  ];
+  },
+  {
+    "id": "1e18ecbd-b406-47ca-8d38-fb78bfe55747",
+    "unitInformation": {
+      "title": "Family Home Near Schools",
+      "description": "Spacious family home ideally located near schools and parks. Perfect for families looking for comfort and convenience.",
+      "unit_type": "House",
+      "unit_name": "Family Haven",
+      "shared_property": "Private",
+      "unit_area": "2000 sqft",
+      "unit_number": "D-401",
+      "unit_address": "101 Pine Street",
+      "unit_images": ["assets/apartment4.jpg", "assets/apartment4a.jpg", "assets/apartment4b.jpg", "assets/apartment4c.jpg"]
+    },
+    "rentInformation": {
+      "expected_rent": "39000 ",
+      "rent_negotiable": false,
+      "stay_type": "Long-term",
+      "minimum_rent_time": "24 months",
+      "late_charges": 6000,
+      "minimum_down_payment": 60000
+    },
+    "facilities": {
+      "furnished": "Unfurnished",
+      "amenities": ["Backyard", "Garage", "Study Room", "Workshop"]
+    }, "ratings": []
+  },
+  {
+    "id": "e8f4a87d-55c2-4d78-8493-b65cc8c90166",
+    "unitInformation": {
+      "title": "Charming Duplex in Historic Area",
+      "description": "Unique duplex featuring vintage charm and modern comforts. Ideal for those seeking a distinctive living experience.",
+      "unit_type": "Duplex",
+      "unit_name": "Heritage Duplex",
+      "shared_property": "Shared",
+      "unit_area": "1800 sqft",
+      "unit_number": "E-501",
+      "unit_address": "222 Maple Avenue",
+      "unit_images": ["assets/apartment5.webp"]
+    },
+    "rentInformation": {
+      "expected_rent": "22900 ",
+      "rent_negotiable": true,
+      "stay_type": "Long-term",
+      "minimum_rent_time": "18 months",
+      "late_charges": 5000,
+      "minimum_down_payment": 55000
+    },
+    "facilities": {
+      "furnished": "Partially furnished",
+      "amenities": ["Fireplace", "Garden", "Pet Friendly"]
+    }, "ratings": []
+  },
+  {
+    "id": "c255bddf-764e-4d22-b211-9ebe2c296d3f",
+    "unitInformation": {
+      "title": "Urban Loft with Industrial Style",
+      "description": "Trendy loft located in the heart of the city. Perfect for urban dwellers seeking a stylish and convenient living space.",
+      "unit_type": "Loft",
+      "unit_name": "Metro Lofts",
+      "shared_property": "Private",
+      "unit_area": "800 sqft",
+      "unit_number": "F-601",
+      "unit_address": "333 Broadway",
+      "unit_images": ["assets/apartment6.jpg"]
+    },
+    "rentInformation": {
+      "expected_rent": "60000",
+      "rent_negotiable": false,
+      "stay_type": "Short-term",
+      "minimum_rent_time": "9 months",
+      "late_charges": 5000,
+      "minimum_down_payment": 100000
+    },
+    "facilities": {
+      "furnished": "Fully furnished",
+      "amenities": ["Rooftop Terrace", "Gym", "Café", "Yoga Studio"]
+    }, "ratings": []
+  },
+  {
+    "id": "90c2c7ab-f75d-4b3f-be3b-dc7494a6c6a7",
+    "unitInformation": {
+      "title": "Lakefront Cottage Retreat",
+      "description": "Quaint cottage offering serene lake views and a peaceful retreat atmosphere. Perfect for relaxation and enjoying nature.",
+      "unit_type": "Cottage",
+      "unit_name": "Lakeview Cottage",
+      "shared_property": "Private",
+      "unit_area": "1500 sqft",
+      "unit_number": "G-701",
+      "unit_address": "444 Lake Drive",
+      "unit_images": ["assets/apartment7.jpg"]
+    },
+    "rentInformation": {
+      "expected_rent": "47000 ",
+      "rent_negotiable": true,
+      "stay_type": "Short-term",
+      "minimum_rent_time": "3 months",
+      "late_charges": 2500,
+      "minimum_down_payment": 30000
+    },
+    "facilities": {
+      "furnished": "Partially furnished",
+      "amenities": ["Dock", "BBQ Area", "Patio", "Fishing Gear"]
+
+    }, "ratings": []
+  },
+  {
+    "id": "64bb82a7-5856-4047-934e-45426b541e0a",
+    "unitInformation": {
+      "title": "Student Apartment Near University",
+      "description": "Affordable apartment located near the university campus. Ideal for students looking for convenience and affordability.",
+      "unit_type": "Apartment",
+      "unit_name": "Campus View Apartments",
+      "shared_property": "Shared",
+      "unit_area": "700 sqft",
+      "unit_number": "H-801",
+      "unit_address": "555 University Avenue",
+      "unit_images": ["assets/apartment8.jpg"]
+    },
+    "rentInformation": {
+      "expected_rent": "32000 ",
+      "rent_negotiable": false,
+      "stay_type": "Long-term",
+      "minimum_rent_time": "12 months",
+      "late_charges": 2000,
+      "minimum_down_payment": 20000
+    },
+    "facilities": {
+      "furnished": "Fully furnished",
+      "amenities": ["Study Room", "Laundry", "Bike Storage", "Game Room"]
+    }, "ratings": []
+  },
+  {
+    "id": "4ae2c728-3060-4f81-9520-a3252c087231",
+    "unitInformation": {
+      "title": " Penthouse with Panoramic Views",
+      "description": "Luxurious penthouse offering breathtaking panoramic views of the city skyline. Experience ultimate luxury and comfort.",
+      "unit_type": "Penthouse",
+      "unit_name": "Skyline Penthouse",
+      "shared_property": "Private",
+      "unit_area": "2500 sqft",
+      "unit_number": "I-901",
+      "unit_address": "777 High Street",
+      "unit_images": ["assets/apartmen9.jpg", "assets/apartment9a.jpg", "assets/apartment9b.jpg", "assets/apartment9c.jpg"]
+    },
+    "rentInformation": {
+      "expected_rent": "50000",
+      "rent_negotiable": true,
+      "stay_type": "Long-term",
+      "minimum_rent_time": "24 months",
+      "late_charges": 10000,
+      "minimum_down_payment": 100000
+    },
+    "facilities": {
+      "furnished": "Fully furnished",
+      "amenities": ["Private Elevator", "Wine Cellar", "Home Theater", "Library"]
+    }, "ratings": []
+  },
+  {
+    "id": "34d42647-78d3-4bc0-b8e4-cc1b4b3670bc",
+    "unitInformation": {
+      "title": "Rural Farmhouse Retreat",
+      "description": "Peaceful farmhouse nestled in the countryside, offering a tranquil escape from city life. Perfect for nature enthusiasts.",
+      "unit_type": "Farmhouse",
+      "unit_name": "Country Living Farmhouse",
+      "shared_property": "Private",
+      "unit_area": "1800 sqft",
+      "unit_number": "J-1001",
+      "unit_address": "888 Farm Road",
+      "unit_images": ["assets/apartment10.jpg", "assets/apartmenta.jpg", "assets/apartment10b.jpg", "assets/apartment10c.jpg"]
+    },
+    "rentInformation": {
+      "expected_rent": "28000 ",
+      "rent_negotiable": false,
+      "stay_type": "Long-term",
+      "minimum_rent_time": "18 months",
+      "late_charges": 5500,
+      "minimum_down_payment": 60000
+    },
+    "facilities": {
+      "furnished": "Partially furnished",
+      "amenities": ["Garden", "Barn", "Vegetable Patch", "Hiking Trails"]
+    }, "ratings": []
+  }
+];
+
+export const AMENITIES: string[] = [
+  'Gym/Fitness Center',
+  'Swimming Pool',
+  'Car Parking',
+  'Visitors Parking',
+  'Power Backup',
+  'Garbage Disposal',
+  'Private Lawn',
+  'Water Heater',
+  'Plant Security System',
+  'Laundry Service',
+  'Elevator',
+  'Club House',
+];
 

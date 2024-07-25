@@ -34,7 +34,7 @@ describe('HomeComponent', () => {
         "id": "ef4803d0-3f93-4ba4-b55a-5b74669d1e69",
         "unitInformation": {
           "title": "Luxury Apartment in Downtown",
-          "description": "Spacious apartment with modern amenties. Enjoy breathtaking views of the city skyline from this luxurious residence.",
+          "description": "Spacious apartment with modern amenities. Enjoy breathtaking views of the city skyline from this luxurious residence.",
           "unit_type": "Apartment",
           "unit_name": "Skyview Residences",
           "shared_property": "Private",
@@ -53,7 +53,7 @@ describe('HomeComponent', () => {
         },
         "facilities": {
           "furnished": "Fully furnished",
-          "amenties": ["Pool, Gym, Parking"]
+          "amenities": ["Pool, Gym, Parking"]
         },
         "ratings": [
           {
@@ -63,7 +63,7 @@ describe('HomeComponent', () => {
           },
           {
             userName: "Jane Smith",
-            review: "Absolutely loved living here! The amenties are top-notch.",
+            review: "Absolutely loved living here! The amenities are top-notch.",
             reviewedOn: "Tue Jul 23 2024 14:15:30 GMT+0530"
           }
         ]

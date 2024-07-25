@@ -43,6 +43,7 @@ export class DetailsComponent implements OnInit {
   reviewForm!: FormGroup;
   images: any = []
   currentImage: any
+  isFavoriteItem: boolean = false
   currentratings: any = []
   rentalService = inject(RentalService);
   constructor(
@@ -56,6 +57,7 @@ export class DetailsComponent implements OnInit {
       let val = data;
       this.current_id = val['id'];
       this.current_data = this.rentalService.getHomeByID(this.current_id)[0];
+      this.listings = this.rentalService.posted_homes$.getValue()
       this.images = this.current_data?.unitInformation?.unit_images;
       this.rentalService.getRatings().subscribe(data => {
         this.currentratings = []
@@ -67,6 +69,7 @@ export class DetailsComponent implements OnInit {
       })
 
       this.currentImage = this.images[0]
+      this.isFavorite()
       this.reviewForm = this.fb.group({
         userName: ['', Validators.required],
         review: ['', Validators.required],
@@ -85,6 +88,19 @@ export class DetailsComponent implements OnInit {
     // this.current_data.ratings.push(...this.rentalService.ratings$.getValue()?.filter(data => data.id == this.current_id))
   }
   handlefavorites(id: string) {
+    // this.rentalService.addToFavorite(id)
     this.rentalService.addToFavorite(id)
+
+  }
+  isFavorite() {
+    this.rentalService.getFavorites().subscribe(data => {
+      console.log(data);
+      
+      if (data.includes(this.current_id)) {
+        this.isFavoriteItem = true
+      } else {
+        this.isFavoriteItem = false
+      }
+    })
   }
 }
