@@ -37,6 +37,7 @@ export class LoginComponent {
       if (loginStatus == true) {
         this.isLoginSuccesful = true;
         localStorage.setItem('loggedInuser', userName);
+        this.userService.loggedInuser$.next(userName)
         this.router.navigate(['/']);
       } else {
         alert(loginStatus);

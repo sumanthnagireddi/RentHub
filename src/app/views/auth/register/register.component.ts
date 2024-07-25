@@ -74,4 +74,12 @@ export class RegisterComponent {
       this.isSubmitted = true;
     }
   }
+  isControlInvalid(controlName: string) {
+    const control: any = this.registrationForm?.get(controlName);
+    return (
+      (this.isSubmitted &&
+        !this.registrationForm.value[controlName]) ||
+      (control.touched && !this.registrationForm.value[controlName])
+    );
+  }
 }

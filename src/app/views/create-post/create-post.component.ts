@@ -98,7 +98,7 @@ export class CreatePostComponent {
         this.selectedIndex = 2
       }
     } else {
-      if (this.rent_form.valid) {
+      if (!this.rent_form.valid) {
         this.rentalService.addToPostedHome({
           id: uuidv4(),
           ...this.rent_form.value,
@@ -106,6 +106,9 @@ export class CreatePostComponent {
           ratings: []
         });
         this.isFormSubmitted = true
+        alert("Your property published succesfully"),
+          this.rent_form.reset();
+        this.selectedIndex = 0
 
       } else {
         alert('Please fill all the fields')

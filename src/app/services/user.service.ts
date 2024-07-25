@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor() {}
+  loggedInuser$ = new BehaviorSubject<any>('')
+  constructor() { }
   registerUser(email: string, userName: string, password: string): boolean {
     if (localStorage.getItem(userName) || localStorage.getItem(email)) {
       return false;

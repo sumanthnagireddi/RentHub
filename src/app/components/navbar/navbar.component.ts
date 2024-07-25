@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,13 +13,17 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class NavbarComponent {
   userName: any;
-  loggedInuser:any
-  openMobileMenu:boolean=false
+  loggedInuser: any
+  openMobileMenu: boolean = false
+  userService = inject(UserService)
   ngOnInit(): void {
-    this.loggedInuser =localStorage.getItem('loggedInuser');
+    this.userService.loggedInuser$.subscribe(data => {
+      this.loggedInuser = data
+    })
   }
-  logout(){
+  logout() {
     localStorage.removeItem('loggedInuser');
-    this.loggedInuser=''
+    this.userService.loggedInuser$.next('')
+
   }
 }
