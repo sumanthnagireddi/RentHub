@@ -23,9 +23,8 @@ export class AuthGuard implements CanActivate, CanDeactivate<CreatePostComponent
     }
     canDeactivate(
         component: CreatePostComponent,
-       
     ): boolean {
-        if (component.rent_form.valid) {
+        if (!component.isFormSubmitted) {
             return window.confirm("You have some unsaved changes do you want to discard those changes?")
         }
         return true;

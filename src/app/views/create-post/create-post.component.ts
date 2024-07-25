@@ -20,11 +20,12 @@ import { AMENITIES } from '../../shared/const';
 export class CreatePostComponent {
   rent_form!: FormGroup;
   amenities_included: string[] = AMENITIES
-  selectedIndex: number = 3
+  selectedIndex: number = 0
   stepperOrientation!: Observable<StepperOrientation>;
   isBasicDetailsSubmitted: boolean = false;
   isRentDetailsSubmitted: boolean = false;
   isFacilitiesSubmitted: boolean = false
+  isFormSubmitted: boolean = false
   amenties_selected: string[] = [];
   constructor(private _formBuilder: FormBuilder, private rentalService: RentalService, breakpointObserver: BreakpointObserver) {
     this.stepperOrientation = breakpointObserver
@@ -97,11 +98,13 @@ export class CreatePostComponent {
         this.selectedIndex = 2
       }
     } else {
-      this.rentalService.createNewPost({
+      this.rentalService.addToPostedHome({
         id: uuidv4(),
         ...this.rent_form.value,
         author: 'me',
+        ratings:[]
       });
+      this.isFormSubmitted = true
     }
   }
   handleAmenities(value: string) {
@@ -112,7 +115,7 @@ export class CreatePostComponent {
       this.amenties_selected.push(value);
     }
     console.log(this.amenties_selected);
-    
+
     this.rent_form.get('facilities')?.get('amenties')?.setValue(this.amenties_selected);
   }
   isControlInvalid(validator: string, formgroupName: string, controlName: string) {
@@ -123,6 +126,5 @@ export class CreatePostComponent {
       (control.touched && !this.rent_form.value[formgroupName][controlName])
     );
   }
-  
 
 }

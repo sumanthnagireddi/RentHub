@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegisterComponent } from './register.component';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -8,9 +9,15 @@ describe('RegisterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegisterComponent]
+      imports: [RegisterComponent, RouterModule],
+      providers: [{
+        provide: ActivatedRoute,
+        useValue: {
+
+        }
+      }]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;

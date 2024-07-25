@@ -6,7 +6,7 @@ import { NgFor } from '@angular/common';
 @Component({
   selector: 'app-favorites',
   standalone: true,
-  imports: [ApartmentCardComponent,NgFor],
+  imports: [ApartmentCardComponent, NgFor],
   templateUrl: './favorites.component.html',
   styleUrl: './favorites.component.css',
 })
@@ -14,11 +14,14 @@ export class FavoritesComponent {
   rentalService = inject(RentalService);
   favorite_items: any = [];
   ngOnInit(): void {
-    const favorites = this.rentalService.getAllfavorites();
-    favorites.forEach((id: string) => {
-      const filtered_item = this.rentalService.getHomeByID(id)[0];
-      this.favorite_items.push(filtered_item)
-    });
-    console.log(this.favorite_items);
+    this.rentalService.getFavorites().subscribe(data => {
+      this.favorite_items = []
+      data.forEach((id: any) => {
+        this.rentalService.getHomes().subscribe(data => {
+          const filtered_items = data.filter(item => item.id == id)
+          this.favorite_items.push(filtered_items[0])
+        })
+      });
+    })
   }
 }

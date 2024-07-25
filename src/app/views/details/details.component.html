@@ -1,4 +1,4 @@
-<div class="py-4 lg:flex">
+<div class="py-4 lg:flex gap-2">
     <div class=" lg:w-[65%]">
         <app-breadcrumb [current_data]="current_data"></app-breadcrumb>
         <div class="py-6 flex gap-6">
@@ -10,7 +10,7 @@
                 <p class="font-medium text-base text-gray-800">{{current_data?.unitInformation?.unit_name}}</p>
 
                 <p class="text-sm">{{current_data?.unitInformation?.description}}</p>
-                <p class="text-sm font-medium">{{current_data?.rentInformation?.expected_rent}} USD</p>
+                <p class="text-sm font-medium">{{current_data?.rentInformation?.expected_rent}}</p>
                 <button class="bg-primary px-6 rounded-md py-1.5 text-white  text-sm">Contact Now</button>
 
             </div>
@@ -88,7 +88,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mb-4" *ngFor="let review of current_data?.ratings">
+                        <div class="mb-4" *ngFor="let review of currentratings">
                             <app-review [data]="review"></app-review>
                         </div>
                     </div>

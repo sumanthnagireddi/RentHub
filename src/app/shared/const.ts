@@ -61,7 +61,7 @@ export const HOMES_DATA: any[] = [
       "facilities": {
         "furnished": "Partially furnished",
         "amenties":[ "Laundry, Elevator"]
-      }
+      }, "ratings": []
     },
     {
       "id": "fe066bb2-13fc-4498-9d14-ffc7b0ef856e",
@@ -113,7 +113,7 @@ export const HOMES_DATA: any[] = [
       "facilities": {
         "furnished": "Unfurnished",
         "amenties": ["Backyard, Garage"]
-      }
+      }, "ratings": []
     },
     {
       "id": "e8f4a87d-55c2-4d78-8493-b65cc8c90166",
@@ -139,7 +139,7 @@ export const HOMES_DATA: any[] = [
       "facilities": {
         "furnished": "Partially furnished",
         "amenties": ["Fireplace, Garden"]
-      }
+      }, "ratings": []
     },
     {
       "id": "c255bddf-764e-4d22-b211-9ebe2c296d3f",
@@ -165,7 +165,7 @@ export const HOMES_DATA: any[] = [
       "facilities": {
         "furnished": "Fully furnished",
         "amenties": ["Rooftop Terrace, Gym"]
-      }
+      }, "ratings": []
     },
     {
       "id": "90c2c7ab-f75d-4b3f-be3b-dc7494a6c6a7",
@@ -191,7 +191,7 @@ export const HOMES_DATA: any[] = [
       "facilities": {
         "furnished": "Partially furnished",
         "amenties": ["Dock, BBQ Area"]
-      }
+      }, "ratings": []
     },
     {
       "id": "64bb82a7-5856-4047-934e-45426b541e0a",
@@ -217,7 +217,7 @@ export const HOMES_DATA: any[] = [
       "facilities": {
         "furnished": "Fully furnished",
         "amenties": ["Study Room, Laundry"]
-      }
+      }, "ratings": []
     },
     {
       "id": "4ae2c728-3060-4f81-9520-a3252c087231",
@@ -243,7 +243,7 @@ export const HOMES_DATA: any[] = [
       "facilities": {
         "furnished": "Fully furnished",
         "amenties": ["Private Elevator, Wine Cellar"]
-      }
+      }, "ratings": []
     },
     {
       "id": "34d42647-78d3-4bc0-b8e4-cc1b4b3670bc",
@@ -269,7 +269,7 @@ export const HOMES_DATA: any[] = [
       "facilities": {
         "furnished": "Partially furnished",
         "amenties": ["Garden, Barn"]
-      }
+      }, "ratings": []
     }
   ];
   

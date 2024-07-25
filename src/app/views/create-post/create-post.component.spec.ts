@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreatePostComponent } from './create-post.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('CreatePostComponent', () => {
   let component: CreatePostComponent;
@@ -8,7 +9,7 @@ describe('CreatePostComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CreatePostComponent]
+      imports: [CreatePostComponent,BrowserAnimationsModule]
     })
     .compileComponents();
 

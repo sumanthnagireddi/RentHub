@@ -20,9 +20,11 @@ import { CarouselComponent1 } from '../../components/carousel/carousel.component
 })
 export class HomeComponent {
   listings: any = [];
-  constructor(private router: Router, private rentalService: RentalService) {}
+  constructor(private router: Router, private rentalService: RentalService) { }
   ngOnInit(): void {
-    this.listings = this.rentalService.getAllListings();
+    this.rentalService.getHomes().subscribe(data => {
+      this.listings = data
+    })
   }
   navigateToViewDetails(data: any) {
     this.router.navigate(['details', data.id]);

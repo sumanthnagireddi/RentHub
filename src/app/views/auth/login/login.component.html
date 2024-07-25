@@ -21,16 +21,14 @@
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <div [formGroup]="loginForm" class="space-y-6">
             <div>
-                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">User Name</label>
+                <label for="username" class="block text-sm font-medium leading-6 text-gray-900">User Name</label>
                 <div class="mt-2">
-                    <input
-                        [ngClass]="{'outline-red-600 ring-red-600':((isSubmitted && !loginForm.value.userName) || loginForm.get('userName')?.hasError('pattern') )}"
-                        formControlName="userName" id="email" name="email" type="email" autocomplete="email" required
+                    <input [ngClass]="{'outline-red-600 ring-red-600':isControlInvalid('userName')}"
+                        formControlName="userName" id="username" name="email" type="text"
                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
-                <small class="text-red-600" *ngIf="(isSubmitted &&!loginForm.value.userName)">Please enter your
-                    email
-                    address</small>
+                <small class="text-red-600" *ngIf="isControlInvalid('userName')">Please enter your
+                    user name</small>
             </div>
 
             <div>
@@ -39,8 +37,11 @@
 
                 </div>
                 <div class="mt-2">
-                    <input id="password" formControlName="password" name="password" type="password" 
+                    <input [ngClass]="{'outline-red-600 ring-red-600':isControlInvalid('password')}"
+                    id="password" formControlName="password" name="password" type="password"
                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <small class="text-red-600" *ngIf="isControlInvalid('password')">Please enter your
+                        password</small>
                 </div>
             </div>
 
@@ -53,7 +54,8 @@
 
         <p class="mt-10 text-center text-sm text-gray-500">
             Not a member?
-            <a routerLink="/register" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Register Now</a>
+            <a routerLink="/register" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Register
+                Now</a>
         </p>
     </div>
 </div>

@@ -18,6 +18,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
+import { v4 as uuidv4 } from 'uuid';
+
 @Component({
   selector: 'app-details',
   standalone: true,
@@ -39,24 +41,32 @@ export class DetailsComponent implements OnInit {
   current_data: any;
   current_id!: string;
   reviewForm!: FormGroup;
-  images:any=[]
-  currentImage:any
+  images: any = []
+  currentImage: any
+  currentratings: any = []
   rentalService = inject(RentalService);
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((data: Params) => {
       let val = data;
       this.current_id = val['id'];
-      this.listings = this.rentalService.getAllListings();
       this.current_data = this.rentalService.getHomeByID(this.current_id)[0];
-      this.images=this.current_data?.unitInformation?.unit_images;
-      this.currentImage=this.images[0]
-      console.log(this.current_data);
+      this.images = this.current_data?.unitInformation?.unit_images;
+      this.rentalService.getRatings().subscribe(data => {
+        this.currentratings = []
+        data.forEach(rating => {
+          if (rating.id === this.current_id) {
+            this.currentratings.unshift(rating)
+          }
+        })
+      })
+
+      this.currentImage = this.images[0]
       this.reviewForm = this.fb.group({
         userName: ['', Validators.required],
         review: ['', Validators.required],
@@ -65,13 +75,16 @@ export class DetailsComponent implements OnInit {
   }
   submitRating() {
     const payload = {
-      userName: 'User1',
+      id: this.current_id,
+      userName: localStorage.getItem('loggedInuser'),
       review: this.reviewForm.value.review,
       reviewedOn: new Date(),
+      objId: uuidv4()
     };
-    this.rentalService.updateRatingsData(this.current_id, payload);
+    this.rentalService.addToRating(payload);
+    // this.current_data.ratings.push(...this.rentalService.ratings$.getValue()?.filter(data => data.id == this.current_id))
   }
   handlefavorites(id: string) {
-    this.rentalService.addTofavorites(id);
+    this.rentalService.addToFavorite(id)
   }
 }

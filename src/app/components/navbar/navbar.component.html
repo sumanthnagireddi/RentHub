@@ -27,21 +27,33 @@
                 <a [routerLink]="'create-post'"
                     [routerLinkActive]="'text-primary text-lg border-b-2 border-primary font-bold'"
                     class="text-sm font-semibold leading-6 text-gray-900">Rent Home</a>
-                <a class="text-sm font-semibold leading-6 text-gray-900">My Listings</a>
+                <a [routerLink]="'my-listings'"
+                    [routerLinkActive]="'text-primary text-lg border-b-2 border-primary font-bold'"
+                    class="text-sm font-semibold leading-6 text-gray-900">My Listings</a>
                 <a [routerLink]="'my-favorites'"
                     [routerLinkActive]="'text-primary text-lg border-b-2 border-primary font-bold'"
                     class="text-sm font-semibold leading-6 text-gray-900">My favorites</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Profile</a>
+                <a [routerLink]="'my-ratings'"
+                    [routerLinkActive]="'text-primary text-lg border-b-2 border-primary font-bold'"
+                    class="text-sm font-semibold leading-6 text-gray-900">My Ratings</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 gap-4 lg:justify-end">
-                <a routerLink="/login" [routerLinkActive]="'text-primary text-lg border-b-2 border-primary font-bold'"
-                    class="text-sm font-semibold leading-6 text-gray-900">Log in <span
-                        aria-hidden="true">&rarr;</span></a>
-                <a routerLink="/register"
-                    [routerLinkActive]="'text-primary text-lg border-b-2 border-primary font-bold'"
-                    class="text-sm font-semibold leading-6 text-gray-900">Register<span
-                        aria-hidden="true">&rarr;</span></a>
+                <div *ngIf="!loggedInuser" class="flex gap-4"> <a routerLink="/login"
+                        [routerLinkActive]="'text-primary text-lg border-b-2 border-primary font-bold'"
+                        class="text-sm font-semibold leading-6 cursor-pointer text-gray-900">Log in <span
+                            aria-hidden="true">&rarr;</span></a>
+                    <a routerLink="/register"
+                        [routerLinkActive]="'text-primary text-lg border-b-2 border-primary font-bold'"
+                        class="text-sm font-semibold leading-6 cursor-pointer text-gray-900">Register<span
+                            aria-hidden="true">&rarr;</span></a>
+                </div>
+                <div *ngIf="loggedInuser" class="flex gap-4 items-center">
+                    <p class="text-sm text-primary font-medium">Welcome {{loggedInuser}}</p>
+                    <a (click)="logout()" class="text-sm cursor-pointer font-semibold leading-6 text-gray-900">Log
+                        out<span aria-hidden="true">&rarr;</span></a>
+                </div>
             </div>
+
         </nav>
         <!-- Mobile menu -->
         <div *ngIf="openMobileMenu" class="lg:hidden" role="dialog" aria-modal="true">
@@ -74,22 +86,30 @@
                             <a (click)="openMobileMenu=false" [routerLink]="'create-post'"
                                 [routerLinkActive]="'text-primary text-lg  font-bold'"
                                 class="text-sm font-semibold leading-6 text-gray-900">Rent Home</a>
-                            <a (click)="openMobileMenu=false" class="text-sm font-semibold leading-6 text-gray-900">My
+                            <a [routerLink]="'my-listings'"
+                                [routerLinkActive]="'text-primary text-lg border-b-2 border-primary font-bold'"
+                                (click)="openMobileMenu=false" class="text-sm font-semibold leading-6 text-gray-900">My
                                 Listings</a>
                             <a (click)="openMobileMenu=false" [routerLink]="'my-favorites'"
                                 [routerLinkActive]="'text-primary text-lg  font-bold'"
                                 class="text-sm font-semibold leading-6 text-gray-900">My favorites</a>
-                            <a (click)="openMobileMenu=false" href="#"
-                                class="text-sm font-semibold leading-6 text-gray-900">Profile</a>
+                            <a [routerLink]="'my-ratings'" [routerLinkActive]="'text-primary text-lg font-bold'"
+                                (click)="openMobileMenu=false" href="#"
+                                class="text-sm font-semibold leading-6 text-gray-900">My Ratings</a>
                         </div>
                         <div class="py-6 grid space-y-1">
-                            <a routerLink="/login" (click)="openMobileMenu=false"
+                            <a *ngIf="!loggedInuser" routerLink="/login" (click)="openMobileMenu=false"
                                 [routerLinkActive]="'text-primary text-lg  font-bold'"
                                 class="text-sm font-semibold leading-6 text-gray-900">Log in <span
                                     aria-hidden="true">&rarr;</span></a>
-                            <a routerLink="/register" (click)="openMobileMenu=false"
-                                [routerLinkActive]="'text-primary text-lg border-b-2 border-primary font-bold'"
+                            <a routerLink="/register" *ngIf="!loggedInuser" (click)="openMobileMenu=false"
+                                [routerLinkActive]="'text-primary text-lg  font-bold'"
                                 class="text-sm font-semibold leading-6 text-gray-900 w-fit">Register<span
+                                    aria-hidden="true">&rarr;</span></a>
+                            <p *ngIf="loggedInuser" class="text-sm text-primary font-medium">Welcome {{loggedInuser}}
+                            </p>
+                            <a *ngIf="loggedInuser" (click)="logout()"
+                                class="text-sm cursor-pointer font-semibold leading-6 text-gray-900">Log out<span
                                     aria-hidden="true">&rarr;</span></a>
                         </div>
                     </div>

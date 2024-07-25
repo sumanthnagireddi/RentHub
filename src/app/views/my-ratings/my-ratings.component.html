@@ -1,0 +1,13 @@
+<div>
+    <div class="py-2">
+        <h2 class="font-semibold  text-base">All reviews added by you</h2>
+        <div class="p-4">
+            <div class="py-2 bg-blue-100 my-2 px-4 rounded-lg shadow-sm" *ngFor="let item of myRatings">
+                <p class="font-medium text-sm text-gray-800">Reviewed For : {{getReviewedItem(item.id)}}</p>
+                <p class="font-medium text-xs text-gray-700">Comment: {{item.review}}</p>
+                <p class="font-normal text-xs text-gray-700">Reviewed On : {{item.reviewedOn | date:'mediumDate'}}</p>
+            </div>
+        </div>
+        <!-- <small>Manage your homes</small> -->
+    </div>
+</div>

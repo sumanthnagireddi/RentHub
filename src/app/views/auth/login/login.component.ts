@@ -46,4 +46,12 @@ export class LoginComponent {
       this.isSubmitted = true;
     }
   }
+  isControlInvalid(controlName: string) {
+    const control: any = this.loginForm?.get(controlName);
+    return (
+      (this.isSubmitted &&
+        !this.loginForm.value[controlName]) ||
+      (control.touched && !this.loginForm.value[controlName])
+    );
+  }
 }

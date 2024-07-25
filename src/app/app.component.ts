@@ -15,7 +15,7 @@ import { HOMES_DATA } from './shared/const';
 export class AppComponent {
   title = 'rent-hub-test';
   ngOnInit(): void {
-    if (!localStorage.getItem('homes')) {
+    if (localStorage.getItem('homes')) {
       localStorage.removeItem('homes');
     }
   }

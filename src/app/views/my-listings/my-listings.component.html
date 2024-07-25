@@ -1,0 +1,9 @@
+<div>
+    <div class="py-6"> <h2 class="font-semibold  text-xl">All postings added by you</h2>
+    <small>Manage your homes</small></div>
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-4">
+        <div *ngFor="let item of my_items">
+            <app-apartment-card  [apartmentData]="item"></app-apartment-card>
+        </div>
+    </div>
+</div>
