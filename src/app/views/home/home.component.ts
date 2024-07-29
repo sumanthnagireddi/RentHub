@@ -45,8 +45,6 @@ export class HomeComponent {
           });
         }
       })
-      console.log(this.amenities);
-
     })
 
   }
@@ -66,11 +64,11 @@ export class HomeComponent {
 
   handleSelectionChange() {
     this.filtered_listings = this.listings.filter((listing: any) => {
-      if (this.selectedAmeneities.length === 0) {
+      if (this.selectedAmeneities?.length === 0) {
         return true
       } else {
         if (listing.facilities && listing.facilities.amenities) {
-          return this.selectedAmeneities.some((amenty: any) => listing.facilities.amenities.includes(amenty))
+          return this.selectedAmeneities?.some((amenty: any) => listing.facilities.amenities?.includes(amenty))
         }
       }
     })
@@ -78,8 +76,6 @@ export class HomeComponent {
   handleSelectionoFPriceRange() {
     let minPrice = 0;
     let maxPrice = Infinity;
-    console.log(this.selectedPricerange);
-    
     switch (this.selectedPricerange) {
       case "0 to 9999":
         maxPrice = 9999;
@@ -100,8 +96,6 @@ export class HomeComponent {
         break;
     }
     this.filtered_listings = this.listings.filter((item: any) => {
-      console.log(item);
-      
       const rent = item.rentInformation.expected_rent;
       return rent >= minPrice && rent <= maxPrice
     })

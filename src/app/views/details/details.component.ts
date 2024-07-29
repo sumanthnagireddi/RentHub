@@ -56,7 +56,7 @@ export class DetailsComponent implements OnInit {
     this.activatedRoute.params.subscribe((data: Params) => {
       let val = data;
       this.current_id = val['id'];
-      this.current_data = this.rentalService.getHomeByID(this.current_id)[0];
+      this.current_data = this.rentalService.getHomeByID(this.current_id)?.[0];
       this.listings = this.rentalService.posted_homes$.getValue()
       this.images = this.current_data?.unitInformation?.unit_images;
       this.rentalService.getRatings().subscribe(data => {
@@ -68,7 +68,7 @@ export class DetailsComponent implements OnInit {
         })
       })
 
-      this.currentImage = this.images[0]
+      this.currentImage = this.images?.[0]
       this.isFavorite()
       this.reviewForm = this.fb.group({
         userName: ['', Validators.required],

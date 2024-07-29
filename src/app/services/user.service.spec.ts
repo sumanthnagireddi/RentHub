@@ -31,9 +31,14 @@ describe('UserService', () => {
   it('should clear localstorage', () => {
     service.logoutUser()
     spyOn(localStorage, 'clear').and.callFake(mockLocalstorage.clear)
+    expect(localStorage.length).toBe(0)
   })
   it('should register user', () => {
-    spyOn(localStorage, 'getItem').and.callFake(mockLocalstorage.getItem)
     service.registerUser('email', 'userName', 'password')
+    spyOn(localStorage, 'getItem').and.callFake(mockLocalstorage.getItem)
+  })
+  it('should login user',()=>{
+    service.loginUser('dummy','dummy@123');
+    
   })
 });
