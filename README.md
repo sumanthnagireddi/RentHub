@@ -73,3 +73,6 @@ Route guards are added at each and every route except home screen , it will chec
 
 Can deactivate guard added in Create-post route for denying the user to not go back without filling the form 
 
+### TESTING
+
+Testcases added for home component and user service using jasmine framework.
